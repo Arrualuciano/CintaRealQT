@@ -1,0 +1,23 @@
+# Build
+build/
+debug/
+release/
+*.o
+*.obj
+moc_*
+ui_*
+qrc_*
+Makefile
+Makefile.*
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.stash
+
+# Binarios
+*.exe
+*.dll
+*.app
