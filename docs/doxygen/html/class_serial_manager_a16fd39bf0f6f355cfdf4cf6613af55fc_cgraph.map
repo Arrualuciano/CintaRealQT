@@ -1,0 +1,5 @@
+<map id="SerialManager::processRxByte" name="SerialManager::processRxByte">
+<area shape="rect" id="Node000001" title="Procesa un byte recibido a traves de la FSM de decodificacion UNER." alt="" coords="5,5,208,32"/>
+<area shape="rect" id="Node000002" href="$class_serial_manager.html#a76f16d83950cba09e6b5a495fbaacc83" title="Emitida al recibir una trama UNER valida con checksum correcto." alt="" coords="256,5,456,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,16,242,19,237,19,208,21"/>
+</map>

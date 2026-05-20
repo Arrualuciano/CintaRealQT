@@ -1,0 +1,5 @@
+<map id="MainWindow::buildSidebar" name="MainWindow::buildSidebar">
+<area shape="rect" id="Node000001" title="Construye el panel lateral de navegacion." alt="" coords="5,5,181,32"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#acf8c1e42d3406ce03b5a8f14ee0b6dd0" title="Cambia la pagina visible en el area central." alt="" coords="229,5,381,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,16,216,19,211,19,181,21"/>
+</map>

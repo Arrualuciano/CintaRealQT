@@ -1,0 +1,19 @@
+<map id="serialmanager.cpp" name="serialmanager.cpp">
+<area shape="rect" id="Node000001" title="Implementacion del modulo de comunicacion serie con protocolo UNER." alt="" coords="264,5,392,32"/>
+<area shape="rect" id="Node000002" href="$serialmanager_8h.html" title="Modulo de comunicacion serie con protocolo UNER para el HMI Qt." alt="" coords="271,80,385,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="329,30,330,66,326,63,327,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,75,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="276,110,91,156,89,151,277,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="98,155,187,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="293,109,190,151,188,146,298,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="212,155,322,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="320,106,289,145,285,141,315,109"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="346,155,435,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="340,105,373,143,367,142,338,110"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="460,155,524,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="357,105,452,148,447,148,356,110"/>
+<area shape="rect" id="Node000008" href="$protocol_8h.html" title="Definiciones del protocolo de comunicacion UNER entre MCU y HMI Qt." alt="" coords="549,155,627,181"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="374,105,536,151,531,152,373,110"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="558,229,618,256"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="590,180,590,215,586,212,586,184"/>
+</map>

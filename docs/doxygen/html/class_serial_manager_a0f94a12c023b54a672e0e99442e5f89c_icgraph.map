@@ -1,0 +1,5 @@
+<map id="SerialManager::disconnectPort" name="SerialManager::disconnectPort">
+<area shape="rect" id="Node000001" title="Cierra el puerto serie y detiene el heartbeat." alt="" coords="257,5,456,32"/>
+<area shape="rect" id="Node000002" href="$class_serial_manager.html#a8d8fdd485791ee860709268140ea56c1" title="Destructor. Cierra el puerto si esta abierto." alt="" coords="5,5,209,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,19,209,21,209,16,243,19"/>
+</map>

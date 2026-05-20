@@ -1,0 +1,896 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Clasificador de Cajas - HMI Qt: Referencia de la clase SerialManager</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Clasificador de Cajas - HMI Qt<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Interfaz grafica de usuario para supervision y control de la cinta clasificadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_serial_manager.html','','class_serial_manager-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia de la clase SerialManager</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Clase que gestiona la comunicacion serie con el MCU.  
+ <a href="#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de herencia de SerialManager</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager__inherit__graph.svg" width="115" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">leyenda</a>]</span></center></div>
+<div class="dynheader">
+Diagrama de colaboración de SerialManager:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager__coll__graph.svg" width="115" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">leyenda</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Métodos públicos</h2></td></tr>
+<tr class="memitem:aa2d090c2f7dc822a3fb1f3ac432abd0d" id="r_aa2d090c2f7dc822a3fb1f3ac432abd0d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa2d090c2f7dc822a3fb1f3ac432abd0d">SerialManager</a> (QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:aa2d090c2f7dc822a3fb1f3ac432abd0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. Crea el QSerialPort y el timer de heartbeat.  <br /></td></tr>
+<tr class="memitem:a8d8fdd485791ee860709268140ea56c1" id="r_a8d8fdd485791ee860709268140ea56c1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8d8fdd485791ee860709268140ea56c1">~SerialManager</a> ()</td></tr>
+<tr class="memdesc:a8d8fdd485791ee860709268140ea56c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Cierra el puerto si esta abierto.  <br /></td></tr>
+<tr class="memitem:a3d7ab73e92bc56d6ba3c1c600367f4b3" id="r_a3d7ab73e92bc56d6ba3c1c600367f4b3"><td class="memItemLeft">QStringList&#160;</td><td class="memItemRight"><a class="el" href="#a3d7ab73e92bc56d6ba3c1c600367f4b3">availablePorts</a> () const</td></tr>
+<tr class="memdesc:a3d7ab73e92bc56d6ba3c1c600367f4b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna la lista de puertos serie disponibles en el sistema.  <br /></td></tr>
+<tr class="memitem:a0a9b4036f9b600ba62ee50e43320deff" id="r_a0a9b4036f9b600ba62ee50e43320deff"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0a9b4036f9b600ba62ee50e43320deff">connectPort</a> (const QString &amp;portName)</td></tr>
+<tr class="memdesc:a0a9b4036f9b600ba62ee50e43320deff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abre el puerto serie especificado a 115200 baud, 8N1.  <br /></td></tr>
+<tr class="memitem:a0f94a12c023b54a672e0e99442e5f89c" id="r_a0f94a12c023b54a672e0e99442e5f89c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0f94a12c023b54a672e0e99442e5f89c">disconnectPort</a> ()</td></tr>
+<tr class="memdesc:a0f94a12c023b54a672e0e99442e5f89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cierra el puerto serie y detiene el heartbeat.  <br /></td></tr>
+<tr class="memitem:a3799ff52382c56504c1b1a79194b66c6" id="r_a3799ff52382c56504c1b1a79194b66c6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3799ff52382c56504c1b1a79194b66c6">isConnected</a> () const</td></tr>
+<tr class="memdesc:a3799ff52382c56504c1b1a79194b66c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta si el puerto serie esta abierto.  <br /></td></tr>
+<tr class="memitem:ab9fb00276941e33fe0c7be0f42e0246e" id="r_ab9fb00276941e33fe0c7be0f42e0246e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab9fb00276941e33fe0c7be0f42e0246e">sendCommand</a> (uint8_t cmdId, const QByteArray &amp;data={})</td></tr>
+<tr class="memdesc:ab9fb00276941e33fe0c7be0f42e0246e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia un comando al MCU encapsulado en una trama UNER.  <br /></td></tr>
+<tr class="memitem:a6800394366d8b7b2b3daeda81caaf1b7" id="r_a6800394366d8b7b2b3daeda81caaf1b7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6800394366d8b7b2b3daeda81caaf1b7">connected</a> ()</td></tr>
+<tr class="memdesc:a6800394366d8b7b2b3daeda81caaf1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitida al conectar exitosamente al puerto serie.  <br /></td></tr>
+<tr class="memitem:a35c3260cdd251e6628824ff41fb1deee" id="r_a35c3260cdd251e6628824ff41fb1deee"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a35c3260cdd251e6628824ff41fb1deee">disconnected</a> ()</td></tr>
+<tr class="memdesc:a35c3260cdd251e6628824ff41fb1deee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitida al desconectar del puerto serie.  <br /></td></tr>
+<tr class="memitem:a76f16d83950cba09e6b5a495fbaacc83" id="r_a76f16d83950cba09e6b5a495fbaacc83"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a76f16d83950cba09e6b5a495fbaacc83">frameReceived</a> (uint8_t cmdId, QByteArray payload)</td></tr>
+<tr class="memdesc:a76f16d83950cba09e6b5a495fbaacc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitida al recibir una trama UNER valida con checksum correcto.  <br /></td></tr>
+<tr class="memitem:aba3a12f136892744725b45a0f2d33f96" id="r_aba3a12f136892744725b45a0f2d33f96"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aba3a12f136892744725b45a0f2d33f96">connectionError</a> (const QString &amp;msg)</td></tr>
+<tr class="memdesc:aba3a12f136892744725b45a0f2d33f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitida cuando ocurre un error al abrir el puerto.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-types" class="groupheader"><a id="pri-types" name="pri-types"></a>
+Tipos privados</h2></td></tr>
+<tr class="memitem:a68e39f893f4a1b9c361ad12cb70a65cd" id="r_a68e39f893f4a1b9c361ad12cb70a65cd"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cd">FsmState</a> { <br />
+&#160;&#160;<a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a>
+, <a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cdabcbc618b2f105aa24fb5facb7b234aca">WAIT_N</a>
+, <a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cdadfb0c03992c00049134a0e492695f10b">WAIT_E</a>
+, <a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cda1249902edbef031a021780a7efb0262c">WAIT_R</a>
+, <br />
+&#160;&#160;<a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cdaa453f0b92d2ac7edfd764eccacffcd58">WAIT_LEN</a>
+, <a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cda8a99881ec9f35037bf7fd89f65e131c1">WAIT_COLON</a>
+, <a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cda2063d705393f509760143bf9bcfb253f">RECV_PAYLOAD</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a68e39f893f4a1b9c361ad12cb70a65cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estados de la FSM de decodificacion de tramas UNER.  <a href="#a68e39f893f4a1b9c361ad12cb70a65cd">Más...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Métodos privados</h2></td></tr>
+<tr class="memitem:a978739631dbc4875c5151668e1452778" id="r_a978739631dbc4875c5151668e1452778"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a978739631dbc4875c5151668e1452778">onAliveTimer</a> ()</td></tr>
+<tr class="memdesc:a978739631dbc4875c5151668e1452778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot del timer de heartbeat: envia CMD_ALIVE cada 500 ms.  <br /></td></tr>
+<tr class="memitem:a16fd39bf0f6f355cfdf4cf6613af55fc" id="r_a16fd39bf0f6f355cfdf4cf6613af55fc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a16fd39bf0f6f355cfdf4cf6613af55fc">processRxByte</a> (uint8_t byte)</td></tr>
+<tr class="memdesc:a16fd39bf0f6f355cfdf4cf6613af55fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procesa un byte recibido a traves de la FSM de decodificacion UNER.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atributos privados</h2></td></tr>
+<tr class="memitem:afad8b63aa4c4e2ff37de38331eb938fd" id="r_afad8b63aa4c4e2ff37de38331eb938fd"><td class="memItemLeft">&#160;</td><td class="memItemRight">: void onReadyRead()</td></tr>
+<tr class="memitem:aaf00eb896d0a23be6a9a347b28f158da" id="r_aaf00eb896d0a23be6a9a347b28f158da"><td class="memItemLeft">QSerialPort *&#160;</td><td class="memItemRight"><a class="el" href="#aaf00eb896d0a23be6a9a347b28f158da">port</a></td></tr>
+<tr class="memitem:a1bcbfd31f1ec96a14b57ff9ee143585b" id="r_a1bcbfd31f1ec96a14b57ff9ee143585b"><td class="memItemLeft">QTimer *&#160;</td><td class="memItemRight"><a class="el" href="#a1bcbfd31f1ec96a14b57ff9ee143585b">aliveTimer</a></td></tr>
+<tr class="memitem:a3a0b8870786c2fab63a0f6127f39141e" id="r_a3a0b8870786c2fab63a0f6127f39141e"><td class="memItemLeft"><a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cd">FsmState</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = <a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a></td></tr>
+<tr class="memitem:a60b5cd79127e03e3ec0bd4243add3dff" id="r_a60b5cd79127e03e3ec0bd4243add3dff"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a60b5cd79127e03e3ec0bd4243add3dff">fsmLen</a> = 0</td></tr>
+<tr class="memitem:af2a7254d28d8529044f5737569e9aadd" id="r_af2a7254d28d8529044f5737569e9aadd"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#af2a7254d28d8529044f5737569e9aadd">fsmCks</a> = 0</td></tr>
+<tr class="memitem:ae923f1a1233c97976a829fa4682a5993" id="r_ae923f1a1233c97976a829fa4682a5993"><td class="memItemLeft">QByteArray&#160;</td><td class="memItemRight"><a class="el" href="#ae923f1a1233c97976a829fa4682a5993">fsmPayload</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Clase que gestiona la comunicacion serie con el MCU. </p>
+<p>Emite senales Qt al conectar, desconectar, recibir tramas validas o detectar errores de conexion. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00038">38</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentación de las enumeraciones miembro de la clase</h2>
+<a id="a68e39f893f4a1b9c361ad12cb70a65cd" name="a68e39f893f4a1b9c361ad12cb70a65cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e39f893f4a1b9c361ad12cb70a65cd">&#9670;&#160;</a></span>FsmState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cd">SerialManager::FsmState</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Estados de la FSM de decodificacion de tramas UNER. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb" name="a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb"></a>WAIT_U&#160;</td><td class="fielddoc"><p>Esperando caracter 'U' del encabezado. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a68e39f893f4a1b9c361ad12cb70a65cdabcbc618b2f105aa24fb5facb7b234aca" name="a68e39f893f4a1b9c361ad12cb70a65cdabcbc618b2f105aa24fb5facb7b234aca"></a>WAIT_N&#160;</td><td class="fielddoc"><p>Esperando caracter 'N'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a68e39f893f4a1b9c361ad12cb70a65cdadfb0c03992c00049134a0e492695f10b" name="a68e39f893f4a1b9c361ad12cb70a65cdadfb0c03992c00049134a0e492695f10b"></a>WAIT_E&#160;</td><td class="fielddoc"><p>Esperando caracter 'E'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a68e39f893f4a1b9c361ad12cb70a65cda1249902edbef031a021780a7efb0262c" name="a68e39f893f4a1b9c361ad12cb70a65cda1249902edbef031a021780a7efb0262c"></a>WAIT_R&#160;</td><td class="fielddoc"><p>Esperando caracter 'R'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a68e39f893f4a1b9c361ad12cb70a65cdaa453f0b92d2ac7edfd764eccacffcd58" name="a68e39f893f4a1b9c361ad12cb70a65cdaa453f0b92d2ac7edfd764eccacffcd58"></a>WAIT_LEN&#160;</td><td class="fielddoc"><p>Esperando byte de longitud (LEN). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a68e39f893f4a1b9c361ad12cb70a65cda8a99881ec9f35037bf7fd89f65e131c1" name="a68e39f893f4a1b9c361ad12cb70a65cda8a99881ec9f35037bf7fd89f65e131c1"></a>WAIT_COLON&#160;</td><td class="fielddoc"><p>Esperando separador ':'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a68e39f893f4a1b9c361ad12cb70a65cda2063d705393f509760143bf9bcfb253f" name="a68e39f893f4a1b9c361ad12cb70a65cda2063d705393f509760143bf9bcfb253f"></a>RECV_PAYLOAD&#160;</td><td class="fielddoc"><p>Recibiendo payload y checksum final. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00120">120</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentación de constructores y destructores</h2>
+<a id="aa2d090c2f7dc822a3fb1f3ac432abd0d" name="aa2d090c2f7dc822a3fb1f3ac432abd0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d090c2f7dc822a3fb1f3ac432abd0d">&#9670;&#160;</a></span>SerialManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SerialManager::SerialManager </td>
+          <td>(</td>
+          <td class="paramtype">QObject *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. Crea el QSerialPort y el timer de heartbeat. </p>
+<p>Constructor. Inicializa el puerto serie y el timer de heartbeat.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Widget padre (ownership de Qt).</td></tr>
+    <tr><td class="paramname">parent</td><td>Widget padre para el sistema de ownership de Qt. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00026">26</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="serialmanager_8h_source.html#l00117">aliveTimer</a>, <a class="el" href="serialmanager_8cpp_source.html#l00225">onAliveTimer()</a> y <a class="el" href="serialmanager_8h_source.html#l00116">port</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_aa2d090c2f7dc822a3fb1f3ac432abd0d_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8d8fdd485791ee860709268140ea56c1" name="a8d8fdd485791ee860709268140ea56c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d8fdd485791ee860709268140ea56c1">&#9670;&#160;</a></span>~SerialManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SerialManager::~SerialManager </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor. Cierra el puerto si esta abierto. </p>
+<p>Destructor. Cierra el puerto serie si esta abierto. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00038">38</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="serialmanager_8cpp_source.html#l00092">disconnectPort()</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a8d8fdd485791ee860709268140ea56c1_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones miembro</h2>
+<a id="a3d7ab73e92bc56d6ba3c1c600367f4b3" name="a3d7ab73e92bc56d6ba3c1c600367f4b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7ab73e92bc56d6ba3c1c600367f4b3">&#9670;&#160;</a></span>availablePorts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QStringList SerialManager::availablePorts </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna la lista de puertos serie disponibles en el sistema. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>QStringList con los nombres de los puertos (ej: "COM3", "COM5").</dd>
+<dd>
+QStringList con los nombres de los puertos detectados. </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00050">50</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0a9b4036f9b600ba62ee50e43320deff" name="a0a9b4036f9b600ba62ee50e43320deff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a9b4036f9b600ba62ee50e43320deff">&#9670;&#160;</a></span>connectPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SerialManager::connectPort </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>portName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Abre el puerto serie especificado a 115200 baud, 8N1. </p>
+<p>Abre el puerto serie con la configuracion requerida por el MCU.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portName</td><td>Nombre del puerto (ej: "COM3"). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si la conexion fue exitosa, false en caso de error.</dd></dl>
+<p>Configuracion: 115200 baud, 8 bits de datos, sin paridad, 1 stop bit. Al conectar exitosamente, reinicia la FSM de recepcion e inicia el timer de heartbeat (500 ms).</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">portName</td><td>Nombre del puerto (ej: "COM3"). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>true si la conexion fue exitosa, false si fallo. </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00067">67</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="serialmanager_8h_source.html#l00117">aliveTimer</a>, <a class="el" href="#a6800394366d8b7b2b3daeda81caaf1b7">connected()</a>, <a class="el" href="#aba3a12f136892744725b45a0f2d33f96">connectionError()</a>, <a class="el" href="serialmanager_8h_source.html#l00130">fsmState</a>, <a class="el" href="serialmanager_8h_source.html#l00116">port</a> y <a class="el" href="serialmanager_8h_source.html#l00121">WAIT_U</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a0a9b4036f9b600ba62ee50e43320deff_cgraph.svg" width="416" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0f94a12c023b54a672e0e99442e5f89c" name="a0f94a12c023b54a672e0e99442e5f89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f94a12c023b54a672e0e99442e5f89c">&#9670;&#160;</a></span>disconnectPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::disconnectPort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cierra el puerto serie y detiene el heartbeat. </p>
+<p>Emite la senal <a class="el" href="#a35c3260cdd251e6628824ff41fb1deee" title="Emitida al desconectar del puerto serie.">disconnected()</a> si el puerto estaba abierto. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00092">92</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="serialmanager_8h_source.html#l00117">aliveTimer</a>, <a class="el" href="#a35c3260cdd251e6628824ff41fb1deee">disconnected()</a> y <a class="el" href="serialmanager_8h_source.html#l00116">port</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00038">~SerialManager()</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a0f94a12c023b54a672e0e99442e5f89c_cgraph.svg" width="448" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a0f94a12c023b54a672e0e99442e5f89c_icgraph.svg" width="462" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3799ff52382c56504c1b1a79194b66c6" name="a3799ff52382c56504c1b1a79194b66c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3799ff52382c56504c1b1a79194b66c6">&#9670;&#160;</a></span>isConnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SerialManager::isConnected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consulta si el puerto serie esta abierto. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>true si esta conectado, false en caso contrario.</dd>
+<dd>
+true si el puerto esta abierto y listo para comunicar. </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00104">104</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="serialmanager_8h_source.html#l00116">port</a>.</p>
+
+</div>
+</div>
+<a id="ab9fb00276941e33fe0c7be0f42e0246e" name="ab9fb00276941e33fe0c7be0f42e0246e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9fb00276941e33fe0c7be0f42e0246e">&#9670;&#160;</a></span>sendCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::sendCommand </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>cmdId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QByteArray &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envia un comando al MCU encapsulado en una trama UNER. </p>
+<p>Construye y envia una trama UNER completa al MCU.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmdId</td><td>Identificador del comando (ver <a class="el" href="protocol_8h.html" title="Definiciones del protocolo de comunicacion UNER entre MCU y HMI Qt.">Protocol.h</a>). </td></tr>
+    <tr><td class="paramname">data</td><td>Datos adicionales del comando (puede estar vacio).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Formato de trama: </p><div class="fragment"><div class="line">[ <span class="charliteral">&#39;U&#39;</span> | <span class="charliteral">&#39;N&#39;</span> | <span class="charliteral">&#39;E&#39;</span> | <span class="charliteral">&#39;R&#39;</span> | LEN | <span class="charliteral">&#39;:&#39;</span> | CMDID | DATA... | CKS ]</div>
+</div><!-- fragment --><p> LEN = 1 (CMDID) + data.size() + 1 (CKS). CKS = XOR de todos los bytes desde 'U' hasta el ultimo dato.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmdId</td><td>Identificador del comando a enviar. </td></tr>
+    <tr><td class="paramname">data</td><td>Bytes de datos adicionales (puede estar vacio). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00125">125</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="serialmanager_8h_source.html#l00116">port</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00225">onAliveTimer()</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_ab9fb00276941e33fe0c7be0f42e0246e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6800394366d8b7b2b3daeda81caaf1b7" name="a6800394366d8b7b2b3daeda81caaf1b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6800394366d8b7b2b3daeda81caaf1b7">&#9670;&#160;</a></span>connected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::connected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Emitida al conectar exitosamente al puerto serie. </p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00067">connectPort()</a> y <a class="el" href="mainwindow_8cpp_source.html#l00025">MainWindow::MainWindow()</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a6800394366d8b7b2b3daeda81caaf1b7_icgraph.svg" width="414" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a35c3260cdd251e6628824ff41fb1deee" name="a35c3260cdd251e6628824ff41fb1deee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c3260cdd251e6628824ff41fb1deee">&#9670;&#160;</a></span>disconnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::disconnected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Emitida al desconectar del puerto serie. </p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00092">disconnectPort()</a> y <a class="el" href="mainwindow_8cpp_source.html#l00025">MainWindow::MainWindow()</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a35c3260cdd251e6628824ff41fb1deee_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a76f16d83950cba09e6b5a495fbaacc83" name="a76f16d83950cba09e6b5a495fbaacc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76f16d83950cba09e6b5a495fbaacc83">&#9670;&#160;</a></span>frameReceived()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::frameReceived </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>cmdId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QByteArray</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Emitida al recibir una trama UNER valida con checksum correcto. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cmdId</td><td>Identificador del comando/evento recibido. </td></tr>
+    <tr><td class="paramname">payload</td><td>Datos del payload (sin CMDID ni CKS). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenciado por <a class="el" href="mainwindow_8cpp_source.html#l00025">MainWindow::MainWindow()</a> y <a class="el" href="serialmanager_8cpp_source.html#l00174">processRxByte()</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a76f16d83950cba09e6b5a495fbaacc83_icgraph.svg" width="462" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aba3a12f136892744725b45a0f2d33f96" name="aba3a12f136892744725b45a0f2d33f96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3a12f136892744725b45a0f2d33f96">&#9670;&#160;</a></span>connectionError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::connectionError </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;</td>          <td class="paramname"><span class="paramname"><em>msg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Emitida cuando ocurre un error al abrir el puerto. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Descripcion del error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00067">connectPort()</a> y <a class="el" href="mainwindow_8cpp_source.html#l00025">MainWindow::MainWindow()</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_aba3a12f136892744725b45a0f2d33f96_icgraph.svg" width="416" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a978739631dbc4875c5151668e1452778" name="a978739631dbc4875c5151668e1452778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a978739631dbc4875c5151668e1452778">&#9670;&#160;</a></span>onAliveTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::onAliveTimer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Slot del timer de heartbeat: envia CMD_ALIVE cada 500 ms. </p>
+<p>Envia un comando CMD_ALIVE al MCU como heartbeat periodico.</p>
+<p>Se ejecuta cada 500 ms mediante el QTimer aliveTimer. El MCU responde con EVT_ALIVE para confirmar que esta operativo. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00225">225</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="protocol_8h_source.html#l00043">CMD_ALIVE</a> y <a class="el" href="serialmanager_8cpp_source.html#l00125">sendCommand()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00026">SerialManager()</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a978739631dbc4875c5151668e1452778_cgraph.svg" width="448" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Gráfico de llamadas a esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a978739631dbc4875c5151668e1452778_icgraph.svg" width="443" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a16fd39bf0f6f355cfdf4cf6613af55fc" name="a16fd39bf0f6f355cfdf4cf6613af55fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16fd39bf0f6f355cfdf4cf6613af55fc">&#9670;&#160;</a></span>processRxByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialManager::processRxByte </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>byte</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Procesa un byte recibido a traves de la FSM de decodificacion UNER. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>Byte recibido del puerto serie.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>La FSM sincroniza con el encabezado "UNER", captura LEN, el separador ':', y finalmente el payload byte a byte hasta verificar el checksum. Al completar una trama valida, emite <a class="el" href="#a76f16d83950cba09e6b5a495fbaacc83" title="Emitida al recibir una trama UNER valida con checksum correcto.">frameReceived()</a>.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>Byte recibido del puerto serie. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8cpp_source.html#l00174">174</a> del archivo <a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="#a76f16d83950cba09e6b5a495fbaacc83">frameReceived()</a>, <a class="el" href="serialmanager_8h_source.html#l00132">fsmCks</a>, <a class="el" href="serialmanager_8h_source.html#l00131">fsmLen</a>, <a class="el" href="serialmanager_8h_source.html#l00133">fsmPayload</a>, <a class="el" href="serialmanager_8h_source.html#l00130">fsmState</a>, <a class="el" href="serialmanager_8h_source.html#l00127">RECV_PAYLOAD</a>, <a class="el" href="serialmanager_8h_source.html#l00126">WAIT_COLON</a>, <a class="el" href="serialmanager_8h_source.html#l00123">WAIT_E</a>, <a class="el" href="serialmanager_8h_source.html#l00125">WAIT_LEN</a>, <a class="el" href="serialmanager_8h_source.html#l00122">WAIT_N</a>, <a class="el" href="serialmanager_8h_source.html#l00124">WAIT_R</a> y <a class="el" href="serialmanager_8h_source.html#l00121">WAIT_U</a>.</p>
+<div class="dynheader">
+Gráfico de llamadas de esta función:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_serial_manager_a16fd39bf0f6f355cfdf4cf6613af55fc_cgraph.svg" width="462" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentación de datos miembro</h2>
+<a id="afad8b63aa4c4e2ff37de38331eb938fd" name="afad8b63aa4c4e2ff37de38331eb938fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad8b63aa4c4e2ff37de38331eb938fd">&#9670;&#160;</a></span>__pad0__</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SerialManager::__pad0__</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00100">100</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+
+</div>
+</div>
+<a id="aaf00eb896d0a23be6a9a347b28f158da" name="aaf00eb896d0a23be6a9a347b28f158da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf00eb896d0a23be6a9a347b28f158da">&#9670;&#160;</a></span>port</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSerialPort* SerialManager::port</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Instancia del puerto serie Qt. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00116">116</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00067">connectPort()</a>, <a class="el" href="serialmanager_8cpp_source.html#l00092">disconnectPort()</a>, <a class="el" href="serialmanager_8cpp_source.html#l00104">isConnected()</a>, <a class="el" href="serialmanager_8cpp_source.html#l00125">sendCommand()</a> y <a class="el" href="serialmanager_8cpp_source.html#l00026">SerialManager()</a>.</p>
+
+</div>
+</div>
+<a id="a1bcbfd31f1ec96a14b57ff9ee143585b" name="a1bcbfd31f1ec96a14b57ff9ee143585b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bcbfd31f1ec96a14b57ff9ee143585b">&#9670;&#160;</a></span>aliveTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer* SerialManager::aliveTimer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Timer para envio periodico de heartbeat. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00117">117</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00067">connectPort()</a>, <a class="el" href="serialmanager_8cpp_source.html#l00092">disconnectPort()</a> y <a class="el" href="serialmanager_8cpp_source.html#l00026">SerialManager()</a>.</p>
+
+</div>
+</div>
+<a id="a3a0b8870786c2fab63a0f6127f39141e" name="a3a0b8870786c2fab63a0f6127f39141e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a0b8870786c2fab63a0f6127f39141e">&#9670;&#160;</a></span>fsmState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cd">FsmState</a> SerialManager::fsmState = <a class="el" href="#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Estado actual de la FSM RX. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00130">130</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00067">connectPort()</a> y <a class="el" href="serialmanager_8cpp_source.html#l00174">processRxByte()</a>.</p>
+
+</div>
+</div>
+<a id="a60b5cd79127e03e3ec0bd4243add3dff" name="a60b5cd79127e03e3ec0bd4243add3dff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b5cd79127e03e3ec0bd4243add3dff">&#9670;&#160;</a></span>fsmLen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialManager::fsmLen = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Bytes restantes del payload en curso. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00131">131</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00174">processRxByte()</a>.</p>
+
+</div>
+</div>
+<a id="af2a7254d28d8529044f5737569e9aadd" name="af2a7254d28d8529044f5737569e9aadd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2a7254d28d8529044f5737569e9aadd">&#9670;&#160;</a></span>fsmCks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialManager::fsmCks = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Checksum acumulado durante recepcion. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00132">132</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00174">processRxByte()</a>.</p>
+
+</div>
+</div>
+<a id="ae923f1a1233c97976a829fa4682a5993" name="ae923f1a1233c97976a829fa4682a5993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae923f1a1233c97976a829fa4682a5993">&#9670;&#160;</a></span>fsmPayload</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray SerialManager::fsmPayload</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Buffer de payload en construccion. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="serialmanager_8h_source.html#l00133">133</a> del archivo <a class="el" href="serialmanager_8h_source.html">serialmanager.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00174">processRxByte()</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación de esta clase está generada de los siguientes archivos:<ul>
+<li><a class="el" href="serialmanager_8h_source.html">serialmanager.h</a></li>
+<li><a class="el" href="serialmanager_8cpp_source.html">serialmanager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_serial_manager.html">SerialManager</a></li>
+    <li class="footer">Generado el <span class="timestamp"></span> para Clasificador de Cajas - HMI Qt por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

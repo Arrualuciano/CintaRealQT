@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Clasificador de Cajas - HMI Qt: Archivo de código fuente mainwindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Clasificador de Cajas - HMI Qt<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Interfaz grafica de usuario para supervision y control de la cinta clasificadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('mainwindow_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">mainwindow.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="mainwindow_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file    mainwindow.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief   Ventana principal del HMI para la cinta clasificadora.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @details Interfaz grafica de usuario (GUI) construida con Qt que permite:</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *          - Conexion/desconexion al puerto serie del ATmega328P.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *          - Modo Calibracion: medir tiempos de arribo S0-&gt;S1/S2/S3,</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *            test manual de servos, ajuste de angulos y umbrales de distancia.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *          - Modo Clasificacion: iniciar/detener la cinta, configurar</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *            tipos de caja por salida, visualizar estado de sensores IR,</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *            distancia medida, servos activos y conteo de cajas clasificadas.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> *          - Log de comunicacion en tiempo real con formato timestamp.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *          La interfaz se divide en:</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *          - Toolbar superior: conexion serie y estado.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> *          - Sidebar izquierdo: navegacion entre paginas.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *          - Area central: paginas de Calibracion y Clasificacion.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> *          - Panel inferior: log de comunicacion (siempre visible).</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * @author  Luciano</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * @date    Mayo 2026</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#ifndef MAINWINDOW_H</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define MAINWINDOW_H</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;QStackedWidget&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;QComboBox&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;QSpinBox&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;QDoubleSpinBox&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;QTableWidget&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;QTextEdit&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;QElapsedTimer&gt;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;<a class="code" href="serialmanager_8h.html">serialmanager.h</a>&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;<a class="code" href="protocol_8h.html">protocol.h</a>&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"></span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * @brief Representa una caja en transito sobre la cinta transportadora.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * @details Se crea al recibir EVT_NEW_BOX del MCU y se elimina al recibir</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *          EVT_SERVO_FIRED para el servo correspondiente.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_box_in_transit.html">   47</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_box_in_transit.html">BoxInTransit</a> {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct_box_in_transit.html#a2bf8f05a0667bfe0974aeb2b2397dbb3">   48</a></span>    <span class="keywordtype">int</span>     <a class="code hl_variable" href="struct_box_in_transit.html#a2bf8f05a0667bfe0974aeb2b2397dbb3">id</a>;         <span class="comment">/**&lt; Identificador secuencial unico de la caja.         */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="struct_box_in_transit.html#a58f856e2a077edf3352913c8691e3c86">   49</a></span>    uint8_t <a class="code hl_variable" href="struct_box_in_transit.html#a58f856e2a077edf3352913c8691e3c86">type</a>;       <span class="comment">/**&lt; Tipo de caja (altura en cm: 6, 8 o 10).            */</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="struct_box_in_transit.html#a0697326393d341832634d7cb7e99a218">   50</a></span>    uint8_t <a class="code hl_variable" href="struct_box_in_transit.html#a0697326393d341832634d7cb7e99a218">servo</a>;      <span class="comment">/**&lt; Servo destino asignado (0, 1 o 2).                 */</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="struct_box_in_transit.html#a964778306d49136e777b080a636d43e7">   51</a></span>    <span class="keywordtype">double</span>  <a class="code hl_variable" href="struct_box_in_transit.html#a964778306d49136e777b080a636d43e7">totalTime</a>;  <span class="comment">/**&lt; Tiempo total de arribo en segundos.                */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="struct_box_in_transit.html#a4e56edee94ed6beb3a0b27302184327e">   52</a></span>    <span class="keywordtype">double</span>  <a class="code hl_variable" href="struct_box_in_transit.html#a4e56edee94ed6beb3a0b27302184327e">remaining</a>;  <span class="comment">/**&lt; Tiempo restante estimado en segundos.              */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"></span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * @brief Ventana principal del HMI de la cinta clasificadora.</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * @details Hereda de QMainWindow. Gestiona toda la interfaz grafica,</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> *          la comunicacion con el MCU via SerialManager, y el estado</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> *          local de la aplicacion (conteo de cajas, cola de transito, etc.).</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="};">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_main_window.html">   62</a></span><span class="keyword">class </span><a class="code hl_function" href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a> : <span class="keyword">public</span> QMainWindow {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    Q_OBJECT</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">     * @brief Constructor. Construye la UI, aplica estilos y conecta senales.</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">     * @param parent Widget padre (nullptr para ventana independiente).</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_main_window.html#a443227251cead463423fc304b8b0b986">   70</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">/* --- Conexion serie --- */</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"></span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">    /** @brief Slot del boton Conectar/Desconectar. */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> onConnectClicked();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"></span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">    /** @brief Refresca la lista de puertos serie disponibles. */</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a9cc4b9352cc8f0fb336fb4791e1f1ea0">onRefreshPorts</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"></span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">    /** @brief Slot invocado al conectar exitosamente al puerto. */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a0eebfe7d6068e82d4ef2032231c4969f">onSerialConnected</a>();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"></span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">    /** @brief Slot invocado al desconectar del puerto. */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a01b045a99f4b5c15999ad31e0c6085c6">onSerialDisconnected</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"></span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">     * @brief Slot invocado al ocurrir un error de conexion.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">     * @param msg Descripcion del error.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#ad677f75546d43f056bd7b2f546a358af">onSerialError</a>(<span class="keyword">const</span> QString &amp;msg);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"></span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">     * @brief Despacha las tramas recibidas del MCU y actualiza la UI.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">     * @param cmdId   Identificador del evento recibido.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     * @param payload Datos del evento.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a18c4f697af0b5fd5019d019d878a4898">onFrameReceived</a>(uint8_t cmdId, QByteArray payload);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">/* --- Calibracion --- */</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"></span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">    /** @brief Inicia o detiene el modo calibracion en el MCU. */</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a6d442443dc1a8b4939ecec8cd5dce904">onStartCalibration</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">    /** @brief Resetea los tiempos de arribo a los valores por defecto (2s/4s/6s). */</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a25bb2e84541c2329e9f6db2bbbfe6f45">onResetDefaultTimes</a>();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"></span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">    /** @brief Envia los umbrales de distancia configurados al MCU. */</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#ac072a152cfe7652ccad3270ca10dd3c3">onApplyThresholds</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">     * @brief Dispara un servo manualmente para test.</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     * @param servo Numero de servo (0, 1 o 2).</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a6a6851ed81ac01eb23c642c836e63578">onTestServo</a>(<span class="keywordtype">int</span> servo);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"></span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">    /** @brief Envia los angulos de servo configurados al MCU. */</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a9081339f72d997b6afd3485169c8a5b2">onApplyServoAngle</a>();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">/* --- Clasificacion --- */</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"></span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">    /** @brief Inicia la clasificacion: envia configuracion y CMD_START al MCU. */</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a8b6ad2f7b2f4dc3de571d2be7f09c161">onStart</a>();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"></span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">    /** @brief Detiene la clasificacion: envia CMD_STOP al MCU. */</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a3c2de388ebdb7b541c805eb50d540fe4">onStop</a>();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"></span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">    /** @brief Resetea el sistema: envia CMD_RESET y limpia contadores locales. */</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#aed588a1ad2fc66f2d562cbdebc360434">onReset</a>();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"></span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">    /** @brief Envia la configuracion de tipos de caja y tiempos al MCU. */</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a2e025786d732966072085d687d825e4c">onApplyOutputConfig</a>();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment"></span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">    /** @brief Timer de refresco de UI a 10 Hz: actualiza cola de cajas. */</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a67a68a189c908b9b50bdbe290afa392e">onRefreshTick</a>();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment">/* --- Construccion de UI --- */</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"></span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">    /** @brief Construye todos los widgets de la interfaz. */</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#afe1bceaad866b6fed583ba83245ae195">buildUi</a>();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment"></span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">    /** @brief Construye la barra de herramientas superior. */</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    QWidget *<a class="code hl_function" href="class_main_window.html#acd664ecee4d4b04d7caeef52b628efff">buildToolbar</a>();</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment"></span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">    /** @brief Construye el panel lateral de navegacion. */</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    QWidget *<a class="code hl_function" href="class_main_window.html#a0531fa9a3d2a53bacd3923ea4d4cef5a">buildSidebar</a>();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"></span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">    /** @brief Construye la pagina de Calibracion. */</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    QWidget *<a class="code hl_function" href="class_main_window.html#a2ce2d016528e5a22bc5556c7ab9e58c2">buildCalibrationPage</a>();</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"></span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">    /** @brief Construye la pagina de Clasificacion. */</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    QWidget *<a class="code hl_function" href="class_main_window.html#abf4c329af69c176000bf54106dfab198">buildClassificationPage</a>();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"></span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">    /** @brief Aplica el stylesheet con soporte High DPI (unidades en pt). */</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a537dff0797e09a03235e397a9fe4949a">applyStyle</a>();</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment"></span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">     * @brief Cambia la pagina visible en el area central.</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">     * @param index 0 = Calibracion, 1 = Clasificacion.</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#acf8c1e42d3406ce03b5a8f14ee0b6dd0">setPage</a>(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="comment">/* --- Gestion de cola de cajas --- */</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment"></span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">     * @brief Agrega una caja a la cola de transito.</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">     * @param type      Tipo de caja (6, 8 o 10 cm).</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">     * @param servo     Servo destino (0, 1 o 2).</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">     * @param timeTicks Tiempo de arribo en ticks de 2 ms.</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a9a9cf27bf475717d9725823ff0cf7068">addBoxToQueue</a>(uint8_t type, uint8_t servo, uint16_t timeTicks);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"></span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">     * @brief Elimina la primera caja asignada al servo indicado.</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">     * @param servo Numero de servo (0, 1 o 2).</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a27aa0cfb5f7861b77b02d9e8e62f527c">removeBoxByServo</a>(uint8_t servo);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"></span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">    /** @brief Refresca la tabla visual de la cola de cajas. */</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a2c60b58787080d899bb2ff8fee369cdc">updateQueueTable</a>();</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="comment">/* --- Utilidades --- */</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"></span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">     * @brief Actualiza el indicador LED de un sensor IR en la UI.</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">     * @param idx    Indice del sensor (0 = S0, 1 = S1, 2 = S2, 3 = S3).</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">     * @param active true = sensor detectando objeto, false = libre.</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#ad0d46ffd46f2fd22b4cdec05a77c3131">setSensorLed</a>(<span class="keywordtype">int</span> idx, <span class="keywordtype">bool</span> active);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment"></span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">     * @brief Agrega un mensaje al log de comunicacion con timestamp.</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">     * @param msg Mensaje a registrar.</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_main_window.html#a15eebf3d5aac3f47bbfe955428b6f64b">log</a>(<span class="keyword">const</span> QString &amp;msg);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="comment">/* --- Miembros --- */</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="class_main_window.html#a55e41804aa3c939b56b093fddf252041">  200</a></span>    <a class="code hl_class" href="class_serial_manager.html">SerialManager</a> *<a class="code hl_variable" href="class_main_window.html#a55e41804aa3c939b56b093fddf252041">serial</a>;       <span class="comment">/**&lt; Gestor de comunicacion serie.              */</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="class_main_window.html#aa2cc9bc437724811b5ea9056ede98964">  201</a></span>    QTimer        *<a class="code hl_variable" href="class_main_window.html#aa2cc9bc437724811b5ea9056ede98964">refreshTimer</a>; <span class="comment">/**&lt; Timer de refresco de UI (10 Hz).           */</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="comment">/* Toolbar */</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="class_main_window.html#a51918f22593b018683e4a4ae8fbd06bf">  204</a></span>    QComboBox   *<a class="code hl_variable" href="class_main_window.html#a51918f22593b018683e4a4ae8fbd06bf">cmbPort</a>;        <span class="comment">/**&lt; Selector de puerto serie.                  */</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="class_main_window.html#a42bb885bfb4923ad7291a046db0507b4">  205</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a42bb885bfb4923ad7291a046db0507b4">btnConnect</a>;     <span class="comment">/**&lt; Boton Conectar/Desconectar.                */</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="class_main_window.html#a29d28bf2719d3c62d5d797ad0d9b66c7">  206</a></span>    QLabel      *<a class="code hl_variable" href="class_main_window.html#a29d28bf2719d3c62d5d797ad0d9b66c7">lblStatus</a>;      <span class="comment">/**&lt; Indicador de estado de conexion.           */</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="comment">/* Sidebar */</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="class_main_window.html#a24985345b0c6c76e280d0eb3fe0727f5">  209</a></span>    QPushButton    *<a class="code hl_variable" href="class_main_window.html#a24985345b0c6c76e280d0eb3fe0727f5">btnPageCalib</a>;   <span class="comment">/**&lt; Boton de navegacion a Calibracion.      */</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="class_main_window.html#a4dae8ae92516572a864d4db20776e61e">  210</a></span>    QPushButton    *<a class="code hl_variable" href="class_main_window.html#a4dae8ae92516572a864d4db20776e61e">btnPageClassif</a>; <span class="comment">/**&lt; Boton de navegacion a Clasificacion.    */</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="class_main_window.html#a1f6a4954d4e1bc90d09d7830e79d45c9">  211</a></span>    QStackedWidget *<a class="code hl_variable" href="class_main_window.html#a1f6a4954d4e1bc90d09d7830e79d45c9">pages</a>;         <span class="comment">/**&lt; Widget apilado para las paginas.         */</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="comment">/* --- Pagina Calibracion --- */</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="class_main_window.html#a28ff80cd607d21c744f0ccef10e8eb4f">  214</a></span>    QLabel      *<a class="code hl_variable" href="class_main_window.html#a28ff80cd607d21c744f0ccef10e8eb4f">lblCalibState</a>;       <span class="comment">/**&lt; Label de estado de calibracion.       */</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="class_main_window.html#acbed2e4f3e6a02be65809143fbaa8fef">  215</a></span>    QLabel      *<a class="code hl_variable" href="class_main_window.html#acbed2e4f3e6a02be65809143fbaa8fef">lblCalibTime</a>[3];     <span class="comment">/**&lt; Labels de tiempos calibrados S1/S2/S3.*/</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="class_main_window.html#a86456ac5742a70dc8e9ac2d919f75af9">  216</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a86456ac5742a70dc8e9ac2d919f75af9">btnStartCalib</a>;       <span class="comment">/**&lt; Boton Iniciar/Detener Calibracion.    */</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="class_main_window.html#a163ee72dcee6ccf3feb785c74424dcb3">  217</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a163ee72dcee6ccf3feb785c74424dcb3">btnResetDefaults</a>;    <span class="comment">/**&lt; Boton de reset a valores por defecto. */</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="class_main_window.html#a1a35474f7d9280172420afeb80629064">  218</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a1a35474f7d9280172420afeb80629064">btnTestServo</a>[3];     <span class="comment">/**&lt; Botones de test de servo.             */</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="class_main_window.html#aa39dc570b235f8431aca1cd1c51b45f8">  219</a></span>    QSpinBox    *<a class="code hl_variable" href="class_main_window.html#aa39dc570b235f8431aca1cd1c51b45f8">spnServoAngle</a>[3];    <span class="comment">/**&lt; Spinboxes de angulo de servo.         */</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="class_main_window.html#a9e651b3651fb808dcf2766a39e530407">  220</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a9e651b3651fb808dcf2766a39e530407">btnApplyAngle</a>;       <span class="comment">/**&lt; Boton para aplicar angulos.           */</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="class_main_window.html#a7fa9d89a2098196238d40989effcbf1d">  221</a></span>    QSpinBox    *<a class="code hl_variable" href="class_main_window.html#a7fa9d89a2098196238d40989effcbf1d">spnThreshGrande</a>;     <span class="comment">/**&lt; Spinbox umbral caja grande.           */</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="class_main_window.html#a5cd39969305a450013d4d7317d059be7">  222</a></span>    QSpinBox    *<a class="code hl_variable" href="class_main_window.html#a5cd39969305a450013d4d7317d059be7">spnThreshMediana</a>;    <span class="comment">/**&lt; Spinbox umbral caja mediana.          */</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="class_main_window.html#a68a8a1e1a4c39d6d1453cb1b194f6cce">  223</a></span>    QSpinBox    *<a class="code hl_variable" href="class_main_window.html#a68a8a1e1a4c39d6d1453cb1b194f6cce">spnThreshPequena</a>;    <span class="comment">/**&lt; Spinbox umbral caja pequena.          */</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="class_main_window.html#a5b86208173593efed345216e076a43db">  224</a></span>    QPushButton *<a class="code hl_variable" href="class_main_window.html#a5b86208173593efed345216e076a43db">btnApplyThresh</a>;      <span class="comment">/**&lt; Boton para aplicar umbrales.          */</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="comment">/* --- Pagina Clasificacion --- */</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="class_main_window.html#a2311f95829fef8d00e49e2ee0a475cf8">  227</a></span>    QPushButton    *<a class="code hl_variable" href="class_main_window.html#a2311f95829fef8d00e49e2ee0a475cf8">btnStart</a>;            <span class="comment">/**&lt; Boton Iniciar clasificacion.        */</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="class_main_window.html#ad63b1bab2169eb1a7dfe43d9da0bb522">  228</a></span>    QPushButton    *<a class="code hl_variable" href="class_main_window.html#ad63b1bab2169eb1a7dfe43d9da0bb522">btnStop</a>;             <span class="comment">/**&lt; Boton Detener clasificacion.        */</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="class_main_window.html#a1ffc5ede00683a836129a98d8b7c4bdf">  229</a></span>    QPushButton    *<a class="code hl_variable" href="class_main_window.html#a1ffc5ede00683a836129a98d8b7c4bdf">btnReset</a>;            <span class="comment">/**&lt; Boton Reset del sistema.            */</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="class_main_window.html#ac26d9143719c230df0423163836bdafc">  230</a></span>    QComboBox      *<a class="code hl_variable" href="class_main_window.html#ac26d9143719c230df0423163836bdafc">cmbOutputType</a>[3];    <span class="comment">/**&lt; Combo tipo de caja por salida.      */</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="class_main_window.html#a5b58d1033bfc60a9bc8cedc2d94386e0">  231</a></span>    QDoubleSpinBox *<a class="code hl_variable" href="class_main_window.html#a5b58d1033bfc60a9bc8cedc2d94386e0">spnOutputTime</a>[3];    <span class="comment">/**&lt; Spinbox tiempo de arribo por salida.*/</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="class_main_window.html#a45fe0d06881a5084068aadd63dbc88cf">  232</a></span>    QPushButton    *<a class="code hl_variable" href="class_main_window.html#a45fe0d06881a5084068aadd63dbc88cf">btnApplyConfig</a>;      <span class="comment">/**&lt; Boton aplicar configuracion.        */</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="class_main_window.html#abf9fbf46075dbdea000e51b6ca42425a">  233</a></span>    QLabel         *<a class="code hl_variable" href="class_main_window.html#abf9fbf46075dbdea000e51b6ca42425a">lblSensor</a>[4];        <span class="comment">/**&lt; LEDs indicadores de sensores IR.    */</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="class_main_window.html#a5c2a08632ea5a7472871cb97b4478c26">  234</a></span>    QLabel         *<a class="code hl_variable" href="class_main_window.html#a5c2a08632ea5a7472871cb97b4478c26">lblServoState</a>[3];    <span class="comment">/**&lt; Labels de estado de servos.         */</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="class_main_window.html#acaa865d25b07b3a8eda12950e4e40d1d">  235</a></span>    QLabel         *<a class="code hl_variable" href="class_main_window.html#acaa865d25b07b3a8eda12950e4e40d1d">lblDistance</a>;         <span class="comment">/**&lt; Label de distancia medida.          */</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="class_main_window.html#a30ad75914114bac30fa14d28813dcde0">  236</a></span>    QLabel         *<a class="code hl_variable" href="class_main_window.html#a30ad75914114bac30fa14d28813dcde0">lblBoxCount</a>[3];      <span class="comment">/**&lt; Labels de conteo por tipo de caja.  */</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="class_main_window.html#a12eebce9922ca2268653112e41cb98cd">  237</a></span>    QLabel         *<a class="code hl_variable" href="class_main_window.html#a12eebce9922ca2268653112e41cb98cd">lblTotalBoxes</a>;       <span class="comment">/**&lt; Label de conteo total de cajas.     */</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="class_main_window.html#ac31b80b6fca80779de861ee980284e76">  238</a></span>    QTableWidget   *<a class="code hl_variable" href="class_main_window.html#ac31b80b6fca80779de861ee980284e76">tblQueue</a>;            <span class="comment">/**&lt; Tabla de cajas en transito.         */</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="class_main_window.html#a1ddb9b13a253b127d60a061b6cad4931">  239</a></span>    QTextEdit      *<a class="code hl_variable" href="class_main_window.html#a1ddb9b13a253b127d60a061b6cad4931">txtLog</a>;              <span class="comment">/**&lt; Area de log de comunicacion.        */</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="comment">/* --- Estado de la aplicacion --- */</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="class_main_window.html#aee32ad083f8d7dd9f9706a9a814c1f75">  242</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_main_window.html#aee32ad083f8d7dd9f9706a9a814c1f75">calibMode</a>   = <span class="keyword">false</span>;       <span class="comment">/**&lt; true si esta en modo calibracion.       */</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="class_main_window.html#a2c7f62fbf97fa392ee225210dd036a37">  243</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_main_window.html#a2c7f62fbf97fa392ee225210dd036a37">beltRunning</a> = <span class="keyword">false</span>;       <span class="comment">/**&lt; true si la cinta esta en marcha.        */</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="class_main_window.html#ae78fb4c83c6db85a59c445513aa442cb">  244</a></span>    <span class="keywordtype">int</span>  <a class="code hl_variable" href="class_main_window.html#ae78fb4c83c6db85a59c445513aa442cb">boxCounts</a>[3] = {0, 0, 0};  <span class="comment">/**&lt; Conteo de cajas por tipo [peq,med,gra]. */</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="class_main_window.html#aa0ad989c13ae0b338a964765a78a277d">  245</a></span>    <span class="keywordtype">int</span>  <a class="code hl_variable" href="class_main_window.html#aa0ad989c13ae0b338a964765a78a277d">nextBoxId</a> = 1;             <span class="comment">/**&lt; Siguiente ID secuencial para cajas.     */</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="class_main_window.html#a1cbb20ef61a6e850a70cee62e7e16713">  246</a></span>    QList&lt;BoxInTransit&gt; <a class="code hl_variable" href="class_main_window.html#a1cbb20ef61a6e850a70cee62e7e16713">boxQueue</a>;   <span class="comment">/**&lt; Cola local de cajas en transito.        */</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="class_main_window.html#a16a5b6a73659471734f73807df4c3dc2">  247</a></span>    QElapsedTimer <a class="code hl_variable" href="class_main_window.html#a16a5b6a73659471734f73807df4c3dc2">calibElapsed</a>;     <span class="comment">/**&lt; Timer para medir duracion de calibracion.*/</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>};</div>
+</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
+<div class="ttc" id="aclass_main_window_html_a01b045a99f4b5c15999ad31e0c6085c6"><div class="ttname"><a href="class_main_window.html#a01b045a99f4b5c15999ad31e0c6085c6">MainWindow::onSerialDisconnected</a></div><div class="ttdeci">void onSerialDisconnected()</div><div class="ttdoc">Slot invocado al desconectar del puerto.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00440">mainwindow.cpp:440</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a0531fa9a3d2a53bacd3923ea4d4cef5a"><div class="ttname"><a href="class_main_window.html#a0531fa9a3d2a53bacd3923ea4d4cef5a">MainWindow::buildSidebar</a></div><div class="ttdeci">QWidget * buildSidebar()</div><div class="ttdoc">Construye el panel lateral de navegacion.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00121">mainwindow.cpp:121</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a0eebfe7d6068e82d4ef2032231c4969f"><div class="ttname"><a href="class_main_window.html#a0eebfe7d6068e82d4ef2032231c4969f">MainWindow::onSerialConnected</a></div><div class="ttdeci">void onSerialConnected()</div><div class="ttdoc">Slot invocado al conectar exitosamente al puerto.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00430">mainwindow.cpp:430</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a12eebce9922ca2268653112e41cb98cd"><div class="ttname"><a href="class_main_window.html#a12eebce9922ca2268653112e41cb98cd">MainWindow::lblTotalBoxes</a></div><div class="ttdeci">QLabel * lblTotalBoxes</div><div class="ttdef"><b>Definition</b> <a href="#l00237">mainwindow.h:237</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a15eebf3d5aac3f47bbfe955428b6f64b"><div class="ttname"><a href="class_main_window.html#a15eebf3d5aac3f47bbfe955428b6f64b">MainWindow::log</a></div><div class="ttdeci">void log(const QString &amp;msg)</div><div class="ttdoc">Agrega un mensaje al log de comunicacion con timestamp.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00739">mainwindow.cpp:739</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a163ee72dcee6ccf3feb785c74424dcb3"><div class="ttname"><a href="class_main_window.html#a163ee72dcee6ccf3feb785c74424dcb3">MainWindow::btnResetDefaults</a></div><div class="ttdeci">QPushButton * btnResetDefaults</div><div class="ttdef"><b>Definition</b> <a href="#l00217">mainwindow.h:217</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a16a5b6a73659471734f73807df4c3dc2"><div class="ttname"><a href="class_main_window.html#a16a5b6a73659471734f73807df4c3dc2">MainWindow::calibElapsed</a></div><div class="ttdeci">QElapsedTimer calibElapsed</div><div class="ttdef"><b>Definition</b> <a href="#l00247">mainwindow.h:247</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a18c4f697af0b5fd5019d019d878a4898"><div class="ttname"><a href="class_main_window.html#a18c4f697af0b5fd5019d019d878a4898">MainWindow::onFrameReceived</a></div><div class="ttdeci">void onFrameReceived(uint8_t cmdId, QByteArray payload)</div><div class="ttdoc">Despacha las tramas recibidas del MCU y actualiza la UI.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00459">mainwindow.cpp:459</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a1a35474f7d9280172420afeb80629064"><div class="ttname"><a href="class_main_window.html#a1a35474f7d9280172420afeb80629064">MainWindow::btnTestServo</a></div><div class="ttdeci">QPushButton * btnTestServo[3]</div><div class="ttdef"><b>Definition</b> <a href="#l00218">mainwindow.h:218</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a1cbb20ef61a6e850a70cee62e7e16713"><div class="ttname"><a href="class_main_window.html#a1cbb20ef61a6e850a70cee62e7e16713">MainWindow::boxQueue</a></div><div class="ttdeci">QList&lt; BoxInTransit &gt; boxQueue</div><div class="ttdef"><b>Definition</b> <a href="#l00246">mainwindow.h:246</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a1ddb9b13a253b127d60a061b6cad4931"><div class="ttname"><a href="class_main_window.html#a1ddb9b13a253b127d60a061b6cad4931">MainWindow::txtLog</a></div><div class="ttdeci">QTextEdit * txtLog</div><div class="ttdef"><b>Definition</b> <a href="#l00239">mainwindow.h:239</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a1f6a4954d4e1bc90d09d7830e79d45c9"><div class="ttname"><a href="class_main_window.html#a1f6a4954d4e1bc90d09d7830e79d45c9">MainWindow::pages</a></div><div class="ttdeci">QStackedWidget * pages</div><div class="ttdef"><b>Definition</b> <a href="#l00211">mainwindow.h:211</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a1ffc5ede00683a836129a98d8b7c4bdf"><div class="ttname"><a href="class_main_window.html#a1ffc5ede00683a836129a98d8b7c4bdf">MainWindow::btnReset</a></div><div class="ttdeci">QPushButton * btnReset</div><div class="ttdef"><b>Definition</b> <a href="#l00229">mainwindow.h:229</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a2311f95829fef8d00e49e2ee0a475cf8"><div class="ttname"><a href="class_main_window.html#a2311f95829fef8d00e49e2ee0a475cf8">MainWindow::btnStart</a></div><div class="ttdeci">QPushButton * btnStart</div><div class="ttdef"><b>Definition</b> <a href="#l00227">mainwindow.h:227</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a24985345b0c6c76e280d0eb3fe0727f5"><div class="ttname"><a href="class_main_window.html#a24985345b0c6c76e280d0eb3fe0727f5">MainWindow::btnPageCalib</a></div><div class="ttdeci">QPushButton * btnPageCalib</div><div class="ttdef"><b>Definition</b> <a href="#l00209">mainwindow.h:209</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a25bb2e84541c2329e9f6db2bbbfe6f45"><div class="ttname"><a href="class_main_window.html#a25bb2e84541c2329e9f6db2bbbfe6f45">MainWindow::onResetDefaultTimes</a></div><div class="ttdeci">void onResetDefaultTimes()</div><div class="ttdoc">Resetea los tiempos de arribo a los valores por defecto (2s/4s/6s).</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00567">mainwindow.cpp:567</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a27aa0cfb5f7861b77b02d9e8e62f527c"><div class="ttname"><a href="class_main_window.html#a27aa0cfb5f7861b77b02d9e8e62f527c">MainWindow::removeBoxByServo</a></div><div class="ttdeci">void removeBoxByServo(uint8_t servo)</div><div class="ttdoc">Elimina la primera caja asignada al servo indicado.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00684">mainwindow.cpp:684</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a28ff80cd607d21c744f0ccef10e8eb4f"><div class="ttname"><a href="class_main_window.html#a28ff80cd607d21c744f0ccef10e8eb4f">MainWindow::lblCalibState</a></div><div class="ttdeci">QLabel * lblCalibState</div><div class="ttdef"><b>Definition</b> <a href="#l00214">mainwindow.h:214</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a29d28bf2719d3c62d5d797ad0d9b66c7"><div class="ttname"><a href="class_main_window.html#a29d28bf2719d3c62d5d797ad0d9b66c7">MainWindow::lblStatus</a></div><div class="ttdeci">QLabel * lblStatus</div><div class="ttdef"><b>Definition</b> <a href="#l00206">mainwindow.h:206</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a2c60b58787080d899bb2ff8fee369cdc"><div class="ttname"><a href="class_main_window.html#a2c60b58787080d899bb2ff8fee369cdc">MainWindow::updateQueueTable</a></div><div class="ttdeci">void updateQueueTable()</div><div class="ttdoc">Refresca la tabla visual de la cola de cajas.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00694">mainwindow.cpp:694</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a2c7f62fbf97fa392ee225210dd036a37"><div class="ttname"><a href="class_main_window.html#a2c7f62fbf97fa392ee225210dd036a37">MainWindow::beltRunning</a></div><div class="ttdeci">bool beltRunning</div><div class="ttdef"><b>Definition</b> <a href="#l00243">mainwindow.h:243</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a2ce2d016528e5a22bc5556c7ab9e58c2"><div class="ttname"><a href="class_main_window.html#a2ce2d016528e5a22bc5556c7ab9e58c2">MainWindow::buildCalibrationPage</a></div><div class="ttdeci">QWidget * buildCalibrationPage()</div><div class="ttdoc">Construye la pagina de Calibracion.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00147">mainwindow.cpp:147</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a2e025786d732966072085d687d825e4c"><div class="ttname"><a href="class_main_window.html#a2e025786d732966072085d687d825e4c">MainWindow::onApplyOutputConfig</a></div><div class="ttdeci">void onApplyOutputConfig()</div><div class="ttdoc">Envia la configuracion de tipos de caja y tiempos al MCU.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00648">mainwindow.cpp:648</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a30ad75914114bac30fa14d28813dcde0"><div class="ttname"><a href="class_main_window.html#a30ad75914114bac30fa14d28813dcde0">MainWindow::lblBoxCount</a></div><div class="ttdeci">QLabel * lblBoxCount[3]</div><div class="ttdef"><b>Definition</b> <a href="#l00236">mainwindow.h:236</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a3c2de388ebdb7b541c805eb50d540fe4"><div class="ttname"><a href="class_main_window.html#a3c2de388ebdb7b541c805eb50d540fe4">MainWindow::onStop</a></div><div class="ttdeci">void onStop()</div><div class="ttdoc">Detiene la clasificacion: envia CMD_STOP al MCU.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00628">mainwindow.cpp:628</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a42bb885bfb4923ad7291a046db0507b4"><div class="ttname"><a href="class_main_window.html#a42bb885bfb4923ad7291a046db0507b4">MainWindow::btnConnect</a></div><div class="ttdeci">QPushButton * btnConnect</div><div class="ttdef"><b>Definition</b> <a href="#l00205">mainwindow.h:205</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a45fe0d06881a5084068aadd63dbc88cf"><div class="ttname"><a href="class_main_window.html#a45fe0d06881a5084068aadd63dbc88cf">MainWindow::btnApplyConfig</a></div><div class="ttdeci">QPushButton * btnApplyConfig</div><div class="ttdef"><b>Definition</b> <a href="#l00232">mainwindow.h:232</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a4dae8ae92516572a864d4db20776e61e"><div class="ttname"><a href="class_main_window.html#a4dae8ae92516572a864d4db20776e61e">MainWindow::btnPageClassif</a></div><div class="ttdeci">QPushButton * btnPageClassif</div><div class="ttdef"><b>Definition</b> <a href="#l00210">mainwindow.h:210</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a51918f22593b018683e4a4ae8fbd06bf"><div class="ttname"><a href="class_main_window.html#a51918f22593b018683e4a4ae8fbd06bf">MainWindow::cmbPort</a></div><div class="ttdeci">QComboBox * cmbPort</div><div class="ttdef"><b>Definition</b> <a href="#l00204">mainwindow.h:204</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a537dff0797e09a03235e397a9fe4949a"><div class="ttname"><a href="class_main_window.html#a537dff0797e09a03235e397a9fe4949a">MainWindow::applyStyle</a></div><div class="ttdeci">void applyStyle()</div><div class="ttdoc">Aplica el stylesheet con soporte High DPI (unidades en pt).</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00395">mainwindow.cpp:395</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a55e41804aa3c939b56b093fddf252041"><div class="ttname"><a href="class_main_window.html#a55e41804aa3c939b56b093fddf252041">MainWindow::serial</a></div><div class="ttdeci">SerialManager * serial</div><div class="ttdef"><b>Definition</b> <a href="#l00200">mainwindow.h:200</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a5b58d1033bfc60a9bc8cedc2d94386e0"><div class="ttname"><a href="class_main_window.html#a5b58d1033bfc60a9bc8cedc2d94386e0">MainWindow::spnOutputTime</a></div><div class="ttdeci">QDoubleSpinBox * spnOutputTime[3]</div><div class="ttdef"><b>Definition</b> <a href="#l00231">mainwindow.h:231</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a5b86208173593efed345216e076a43db"><div class="ttname"><a href="class_main_window.html#a5b86208173593efed345216e076a43db">MainWindow::btnApplyThresh</a></div><div class="ttdeci">QPushButton * btnApplyThresh</div><div class="ttdef"><b>Definition</b> <a href="#l00224">mainwindow.h:224</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a5c2a08632ea5a7472871cb97b4478c26"><div class="ttname"><a href="class_main_window.html#a5c2a08632ea5a7472871cb97b4478c26">MainWindow::lblServoState</a></div><div class="ttdeci">QLabel * lblServoState[3]</div><div class="ttdef"><b>Definition</b> <a href="#l00234">mainwindow.h:234</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a5cd39969305a450013d4d7317d059be7"><div class="ttname"><a href="class_main_window.html#a5cd39969305a450013d4d7317d059be7">MainWindow::spnThreshMediana</a></div><div class="ttdeci">QSpinBox * spnThreshMediana</div><div class="ttdef"><b>Definition</b> <a href="#l00222">mainwindow.h:222</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a67a68a189c908b9b50bdbe290afa392e"><div class="ttname"><a href="class_main_window.html#a67a68a189c908b9b50bdbe290afa392e">MainWindow::onRefreshTick</a></div><div class="ttdeci">void onRefreshTick()</div><div class="ttdoc">Timer de refresco de UI a 10 Hz: actualiza cola de cajas.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00709">mainwindow.cpp:709</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a68a8a1e1a4c39d6d1453cb1b194f6cce"><div class="ttname"><a href="class_main_window.html#a68a8a1e1a4c39d6d1453cb1b194f6cce">MainWindow::spnThreshPequena</a></div><div class="ttdeci">QSpinBox * spnThreshPequena</div><div class="ttdef"><b>Definition</b> <a href="#l00223">mainwindow.h:223</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a6a6851ed81ac01eb23c642c836e63578"><div class="ttname"><a href="class_main_window.html#a6a6851ed81ac01eb23c642c836e63578">MainWindow::onTestServo</a></div><div class="ttdeci">void onTestServo(int servo)</div><div class="ttdoc">Dispara un servo manualmente para test.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00597">mainwindow.cpp:597</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a6d442443dc1a8b4939ecec8cd5dce904"><div class="ttname"><a href="class_main_window.html#a6d442443dc1a8b4939ecec8cd5dce904">MainWindow::onStartCalibration</a></div><div class="ttdeci">void onStartCalibration()</div><div class="ttdoc">Inicia o detiene el modo calibracion en el MCU.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00548">mainwindow.cpp:548</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a7fa9d89a2098196238d40989effcbf1d"><div class="ttname"><a href="class_main_window.html#a7fa9d89a2098196238d40989effcbf1d">MainWindow::spnThreshGrande</a></div><div class="ttdeci">QSpinBox * spnThreshGrande</div><div class="ttdef"><b>Definition</b> <a href="#l00221">mainwindow.h:221</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a86456ac5742a70dc8e9ac2d919f75af9"><div class="ttname"><a href="class_main_window.html#a86456ac5742a70dc8e9ac2d919f75af9">MainWindow::btnStartCalib</a></div><div class="ttdeci">QPushButton * btnStartCalib</div><div class="ttdef"><b>Definition</b> <a href="#l00216">mainwindow.h:216</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a8b6ad2f7b2f4dc3de571d2be7f09c161"><div class="ttname"><a href="class_main_window.html#a8b6ad2f7b2f4dc3de571d2be7f09c161">MainWindow::onStart</a></div><div class="ttdeci">void onStart()</div><div class="ttdoc">Inicia la clasificacion: envia configuracion y CMD_START al MCU.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00621">mainwindow.cpp:621</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a9081339f72d997b6afd3485169c8a5b2"><div class="ttname"><a href="class_main_window.html#a9081339f72d997b6afd3485169c8a5b2">MainWindow::onApplyServoAngle</a></div><div class="ttdeci">void onApplyServoAngle()</div><div class="ttdoc">Envia los angulos de servo configurados al MCU.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00604">mainwindow.cpp:604</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a996c5a2b6f77944776856f08ec30858d"><div class="ttname"><a href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow::MainWindow</a></div><div class="ttdeci">MainWindow(QWidget *parent=nullptr)</div><div class="ttdoc">Constructor. Construye la UI, aplica estilos y conecta senales.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00025">mainwindow.cpp:25</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a9a9cf27bf475717d9725823ff0cf7068"><div class="ttname"><a href="class_main_window.html#a9a9cf27bf475717d9725823ff0cf7068">MainWindow::addBoxToQueue</a></div><div class="ttdeci">void addBoxToQueue(uint8_t type, uint8_t servo, uint16_t timeTicks)</div><div class="ttdoc">Agrega una caja a la cola de transito.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00673">mainwindow.cpp:673</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a9cc4b9352cc8f0fb336fb4791e1f1ea0"><div class="ttname"><a href="class_main_window.html#a9cc4b9352cc8f0fb336fb4791e1f1ea0">MainWindow::onRefreshPorts</a></div><div class="ttdeci">void onRefreshPorts()</div><div class="ttdoc">Refresca la lista de puertos serie disponibles.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00413">mainwindow.cpp:413</a></div></div>
+<div class="ttc" id="aclass_main_window_html_a9e651b3651fb808dcf2766a39e530407"><div class="ttname"><a href="class_main_window.html#a9e651b3651fb808dcf2766a39e530407">MainWindow::btnApplyAngle</a></div><div class="ttdeci">QPushButton * btnApplyAngle</div><div class="ttdef"><b>Definition</b> <a href="#l00220">mainwindow.h:220</a></div></div>
+<div class="ttc" id="aclass_main_window_html_aa0ad989c13ae0b338a964765a78a277d"><div class="ttname"><a href="class_main_window.html#aa0ad989c13ae0b338a964765a78a277d">MainWindow::nextBoxId</a></div><div class="ttdeci">int nextBoxId</div><div class="ttdef"><b>Definition</b> <a href="#l00245">mainwindow.h:245</a></div></div>
+<div class="ttc" id="aclass_main_window_html_aa2cc9bc437724811b5ea9056ede98964"><div class="ttname"><a href="class_main_window.html#aa2cc9bc437724811b5ea9056ede98964">MainWindow::refreshTimer</a></div><div class="ttdeci">QTimer * refreshTimer</div><div class="ttdef"><b>Definition</b> <a href="#l00201">mainwindow.h:201</a></div></div>
+<div class="ttc" id="aclass_main_window_html_aa39dc570b235f8431aca1cd1c51b45f8"><div class="ttname"><a href="class_main_window.html#aa39dc570b235f8431aca1cd1c51b45f8">MainWindow::spnServoAngle</a></div><div class="ttdeci">QSpinBox * spnServoAngle[3]</div><div class="ttdef"><b>Definition</b> <a href="#l00219">mainwindow.h:219</a></div></div>
+<div class="ttc" id="aclass_main_window_html_abf4c329af69c176000bf54106dfab198"><div class="ttname"><a href="class_main_window.html#abf4c329af69c176000bf54106dfab198">MainWindow::buildClassificationPage</a></div><div class="ttdeci">QWidget * buildClassificationPage()</div><div class="ttdoc">Construye la pagina de Clasificacion.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00258">mainwindow.cpp:258</a></div></div>
+<div class="ttc" id="aclass_main_window_html_abf9fbf46075dbdea000e51b6ca42425a"><div class="ttname"><a href="class_main_window.html#abf9fbf46075dbdea000e51b6ca42425a">MainWindow::lblSensor</a></div><div class="ttdeci">QLabel * lblSensor[4]</div><div class="ttdef"><b>Definition</b> <a href="#l00233">mainwindow.h:233</a></div></div>
+<div class="ttc" id="aclass_main_window_html_ac072a152cfe7652ccad3270ca10dd3c3"><div class="ttname"><a href="class_main_window.html#ac072a152cfe7652ccad3270ca10dd3c3">MainWindow::onApplyThresholds</a></div><div class="ttdeci">void onApplyThresholds()</div><div class="ttdoc">Envia los umbrales de distancia configurados al MCU.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00585">mainwindow.cpp:585</a></div></div>
+<div class="ttc" id="aclass_main_window_html_ac26d9143719c230df0423163836bdafc"><div class="ttname"><a href="class_main_window.html#ac26d9143719c230df0423163836bdafc">MainWindow::cmbOutputType</a></div><div class="ttdeci">QComboBox * cmbOutputType[3]</div><div class="ttdef"><b>Definition</b> <a href="#l00230">mainwindow.h:230</a></div></div>
+<div class="ttc" id="aclass_main_window_html_ac31b80b6fca80779de861ee980284e76"><div class="ttname"><a href="class_main_window.html#ac31b80b6fca80779de861ee980284e76">MainWindow::tblQueue</a></div><div class="ttdeci">QTableWidget * tblQueue</div><div class="ttdef"><b>Definition</b> <a href="#l00238">mainwindow.h:238</a></div></div>
+<div class="ttc" id="aclass_main_window_html_acaa865d25b07b3a8eda12950e4e40d1d"><div class="ttname"><a href="class_main_window.html#acaa865d25b07b3a8eda12950e4e40d1d">MainWindow::lblDistance</a></div><div class="ttdeci">QLabel * lblDistance</div><div class="ttdef"><b>Definition</b> <a href="#l00235">mainwindow.h:235</a></div></div>
+<div class="ttc" id="aclass_main_window_html_acbed2e4f3e6a02be65809143fbaa8fef"><div class="ttname"><a href="class_main_window.html#acbed2e4f3e6a02be65809143fbaa8fef">MainWindow::lblCalibTime</a></div><div class="ttdeci">QLabel * lblCalibTime[3]</div><div class="ttdef"><b>Definition</b> <a href="#l00215">mainwindow.h:215</a></div></div>
+<div class="ttc" id="aclass_main_window_html_acd664ecee4d4b04d7caeef52b628efff"><div class="ttname"><a href="class_main_window.html#acd664ecee4d4b04d7caeef52b628efff">MainWindow::buildToolbar</a></div><div class="ttdeci">QWidget * buildToolbar()</div><div class="ttdoc">Construye la barra de herramientas superior.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00087">mainwindow.cpp:87</a></div></div>
+<div class="ttc" id="aclass_main_window_html_acf8c1e42d3406ce03b5a8f14ee0b6dd0"><div class="ttname"><a href="class_main_window.html#acf8c1e42d3406ce03b5a8f14ee0b6dd0">MainWindow::setPage</a></div><div class="ttdeci">void setPage(int index)</div><div class="ttdoc">Cambia la pagina visible en el area central.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00403">mainwindow.cpp:403</a></div></div>
+<div class="ttc" id="aclass_main_window_html_ad0d46ffd46f2fd22b4cdec05a77c3131"><div class="ttname"><a href="class_main_window.html#ad0d46ffd46f2fd22b4cdec05a77c3131">MainWindow::setSensorLed</a></div><div class="ttdeci">void setSensorLed(int idx, bool active)</div><div class="ttdoc">Actualiza el indicador LED de un sensor IR en la UI.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00731">mainwindow.cpp:731</a></div></div>
+<div class="ttc" id="aclass_main_window_html_ad63b1bab2169eb1a7dfe43d9da0bb522"><div class="ttname"><a href="class_main_window.html#ad63b1bab2169eb1a7dfe43d9da0bb522">MainWindow::btnStop</a></div><div class="ttdeci">QPushButton * btnStop</div><div class="ttdef"><b>Definition</b> <a href="#l00228">mainwindow.h:228</a></div></div>
+<div class="ttc" id="aclass_main_window_html_ad677f75546d43f056bd7b2f546a358af"><div class="ttname"><a href="class_main_window.html#ad677f75546d43f056bd7b2f546a358af">MainWindow::onSerialError</a></div><div class="ttdeci">void onSerialError(const QString &amp;msg)</div><div class="ttdoc">Slot invocado al ocurrir un error de conexion.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00451">mainwindow.cpp:451</a></div></div>
+<div class="ttc" id="aclass_main_window_html_ae78fb4c83c6db85a59c445513aa442cb"><div class="ttname"><a href="class_main_window.html#ae78fb4c83c6db85a59c445513aa442cb">MainWindow::boxCounts</a></div><div class="ttdeci">int boxCounts[3]</div><div class="ttdef"><b>Definition</b> <a href="#l00244">mainwindow.h:244</a></div></div>
+<div class="ttc" id="aclass_main_window_html_aed588a1ad2fc66f2d562cbdebc360434"><div class="ttname"><a href="class_main_window.html#aed588a1ad2fc66f2d562cbdebc360434">MainWindow::onReset</a></div><div class="ttdeci">void onReset()</div><div class="ttdoc">Resetea el sistema: envia CMD_RESET y limpia contadores locales.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00634">mainwindow.cpp:634</a></div></div>
+<div class="ttc" id="aclass_main_window_html_aee32ad083f8d7dd9f9706a9a814c1f75"><div class="ttname"><a href="class_main_window.html#aee32ad083f8d7dd9f9706a9a814c1f75">MainWindow::calibMode</a></div><div class="ttdeci">bool calibMode</div><div class="ttdef"><b>Definition</b> <a href="#l00242">mainwindow.h:242</a></div></div>
+<div class="ttc" id="aclass_main_window_html_afe1bceaad866b6fed583ba83245ae195"><div class="ttname"><a href="class_main_window.html#afe1bceaad866b6fed583ba83245ae195">MainWindow::buildUi</a></div><div class="ttdeci">void buildUi()</div><div class="ttdoc">Construye todos los widgets de la interfaz.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00050">mainwindow.cpp:50</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html"><div class="ttname"><a href="class_serial_manager.html">SerialManager</a></div><div class="ttdoc">Clase que gestiona la comunicacion serie con el MCU.</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00038">serialmanager.h:38</a></div></div>
+<div class="ttc" id="aprotocol_8h_html"><div class="ttname"><a href="protocol_8h.html">protocol.h</a></div><div class="ttdoc">Definiciones del protocolo de comunicacion UNER entre MCU y HMI Qt.</div></div>
+<div class="ttc" id="aserialmanager_8h_html"><div class="ttname"><a href="serialmanager_8h.html">serialmanager.h</a></div><div class="ttdoc">Modulo de comunicacion serie con protocolo UNER para el HMI Qt.</div></div>
+<div class="ttc" id="astruct_box_in_transit_html"><div class="ttname"><a href="struct_box_in_transit.html">BoxInTransit</a></div><div class="ttdoc">Representa una caja en transito sobre la cinta transportadora.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">mainwindow.h:47</a></div></div>
+<div class="ttc" id="astruct_box_in_transit_html_a0697326393d341832634d7cb7e99a218"><div class="ttname"><a href="struct_box_in_transit.html#a0697326393d341832634d7cb7e99a218">BoxInTransit::servo</a></div><div class="ttdeci">uint8_t servo</div><div class="ttdef"><b>Definition</b> <a href="#l00050">mainwindow.h:50</a></div></div>
+<div class="ttc" id="astruct_box_in_transit_html_a2bf8f05a0667bfe0974aeb2b2397dbb3"><div class="ttname"><a href="struct_box_in_transit.html#a2bf8f05a0667bfe0974aeb2b2397dbb3">BoxInTransit::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition</b> <a href="#l00048">mainwindow.h:48</a></div></div>
+<div class="ttc" id="astruct_box_in_transit_html_a4e56edee94ed6beb3a0b27302184327e"><div class="ttname"><a href="struct_box_in_transit.html#a4e56edee94ed6beb3a0b27302184327e">BoxInTransit::remaining</a></div><div class="ttdeci">double remaining</div><div class="ttdef"><b>Definition</b> <a href="#l00052">mainwindow.h:52</a></div></div>
+<div class="ttc" id="astruct_box_in_transit_html_a58f856e2a077edf3352913c8691e3c86"><div class="ttname"><a href="struct_box_in_transit.html#a58f856e2a077edf3352913c8691e3c86">BoxInTransit::type</a></div><div class="ttdeci">uint8_t type</div><div class="ttdef"><b>Definition</b> <a href="#l00049">mainwindow.h:49</a></div></div>
+<div class="ttc" id="astruct_box_in_transit_html_a964778306d49136e777b080a636d43e7"><div class="ttname"><a href="struct_box_in_transit.html#a964778306d49136e777b080a636d43e7">BoxInTransit::totalTime</a></div><div class="ttdeci">double totalTime</div><div class="ttdef"><b>Definition</b> <a href="#l00051">mainwindow.h:51</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="mainwindow_8h.html">mainwindow.h</a></li>
+    <li class="footer">Generado el <span class="timestamp"></span> para Clasificador de Cajas - HMI Qt por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

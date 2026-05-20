@@ -1,0 +1,7 @@
+<map id="MainWindow::log" name="MainWindow::log">
+<area shape="rect" id="Node000001" title="Agrega un mensaje al log de comunicacion con timestamp." alt="" coords="470,5,591,32"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a67a68a189c908b9b50bdbe290afa392e" title="Timer de refresco de UI a 10 Hz: actualiza cola de cajas." alt="" coords="233,5,422,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="452,19,422,21,422,16,457,19"/>
+<area shape="rect" id="Node000003" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title="Constructor. Construye la UI, aplica estilos y conecta senales." alt="" coords="5,5,185,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="215,19,185,21,185,16,220,19"/>
+</map>

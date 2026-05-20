@@ -1,0 +1,14 @@
+<map id="protocol.h" name="protocol.h">
+<area shape="rect" id="Node000001" title="Definiciones del protocolo de comunicacion UNER entre MCU y HMI Qt." alt="" coords="110,5,188,32"/>
+<area shape="rect" id="Node000002" href="$mainwindow_8h.html" title="Ventana principal del HMI para la cinta clasificadora." alt="" coords="51,155,154,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,44,132,81,109,155,104,153,127,79,139,49"/>
+<area shape="rect" id="Node000005" href="$serialmanager_8h.html" title="Modulo de comunicacion serie con protocolo UNER para el HMI Qt." alt="" coords="140,80,254,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="166,43,192,79,186,80,165,48"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Punto de entrada de la aplicacion HMI para la cinta clasificadora." alt="" coords="5,229,80,256"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,193,55,231,51,227,80,194"/>
+<area shape="rect" id="Node000004" href="$mainwindow_8cpp.html" title="Implementacion de la ventana principal del HMI." alt="" coords="104,229,221,256"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="124,191,155,229,150,229,121,196"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="167,118,120,156,117,152,171,115"/>
+<area shape="rect" id="Node000006" href="$serialmanager_8cpp.html" title="Implementacion del modulo de comunicacion serie con protocolo UNER." alt="" coords="179,155,306,181"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="214,118,237,155,232,154,212,123"/>
+</map>

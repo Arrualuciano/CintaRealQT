@@ -1,0 +1,753 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Clasificador de Cajas - HMI Qt: Referencia del archivo protocol.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Clasificador de Cajas - HMI Qt<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Interfaz grafica de usuario para supervision y control de la cinta clasificadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('protocol_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia del archivo protocol.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Definiciones del protocolo de comunicacion UNER entre MCU y HMI Qt.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependencias incluidas en protocol.h:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="protocol_8h__incl.svg" width="90" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Gráfico de los archivos que directa o indirectamente incluyen a este archivo:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="protocol_8h__dep__incl.svg" width="312" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="protocol_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a0e0ef209ad00cab4f107b6b891b87d3b" id="r_a0e0ef209ad00cab4f107b6b891b87d3b"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a0e0ef209ad00cab4f107b6b891b87d3b">CMD_ALIVE</a> = 0xF0</td></tr>
+<tr class="memdesc:a0e0ef209ad00cab4f107b6b891b87d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heartbeat bidireccional: Qt envia, MCU responde con EVT_ALIVE.  <br /></td></tr>
+<tr class="memitem:a5ca99098e60e25b96aa93289ed1a8efe" id="r_a5ca99098e60e25b96aa93289ed1a8efe"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a5ca99098e60e25b96aa93289ed1a8efe">CMD_START</a> = 0x50</td></tr>
+<tr class="memdesc:a5ca99098e60e25b96aa93289ed1a8efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iniciar clasificacion: activa la cinta (PC0 = LOW) y habilita la logica.  <br /></td></tr>
+<tr class="memitem:a0d3349223e822408e04517754fb5ffdb" id="r_a0d3349223e822408e04517754fb5ffdb"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a0d3349223e822408e04517754fb5ffdb">CMD_STOP</a> = 0x51</td></tr>
+<tr class="memdesc:a0d3349223e822408e04517754fb5ffdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detener clasificacion: apaga la cinta (PC0 = HIGH).  <br /></td></tr>
+<tr class="memitem:a98551d0ffa32a1e60df1041d62d19c1b" id="r_a98551d0ffa32a1e60df1041d62d19c1b"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a98551d0ffa32a1e60df1041d62d19c1b">CMD_RESET</a> = 0x53</td></tr>
+<tr class="memdesc:a98551d0ffa32a1e60df1041d62d19c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset completo: detiene cinta, limpia cola de cajas, sale de calibracion.  <br /></td></tr>
+<tr class="memitem:a9ef5587474168272a261f5818a9f3a48" id="r_a9ef5587474168272a261f5818a9f3a48"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a9ef5587474168272a261f5818a9f3a48">CMD_SET_CONFIG</a> = 0x60</td></tr>
+<tr class="memdesc:a9ef5587474168272a261f5818a9f3a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurar tipos de caja por salida. Payload: [boxType0, boxType1, boxType2].  <br /></td></tr>
+<tr class="memitem:a22346d11975c26e79d3ec74425007523" id="r_a22346d11975c26e79d3ec74425007523"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a22346d11975c26e79d3ec74425007523">CMD_SET_TIMES</a> = 0x61</td></tr>
+<tr class="memdesc:a22346d11975c26e79d3ec74425007523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurar tiempo de arribo de un servo. Payload: [servo, timeHi, timeLo].  <br /></td></tr>
+<tr class="memitem:ae03c38daad9f3a6c5a3735a9917f185d" id="r_ae03c38daad9f3a6c5a3735a9917f185d"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ae03c38daad9f3a6c5a3735a9917f185d">CMD_SET_THRESHOLD</a> = 0x62</td></tr>
+<tr class="memdesc:ae03c38daad9f3a6c5a3735a9917f185d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurar umbrales de distancia. Payload: [grande, mediana, pequena].  <br /></td></tr>
+<tr class="memitem:a020701ff98643f367f02d887b32060ff" id="r_a020701ff98643f367f02d887b32060ff"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a020701ff98643f367f02d887b32060ff">CMD_TEST_SERVO</a> = 0x63</td></tr>
+<tr class="memdesc:a020701ff98643f367f02d887b32060ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disparo manual de un servo para test. Payload: [servoNum].  <br /></td></tr>
+<tr class="memitem:a08fd3d01c158fe1d4001b2822581835c" id="r_a08fd3d01c158fe1d4001b2822581835c"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a08fd3d01c158fe1d4001b2822581835c">CMD_SET_SERVO_ANGLE</a> = 0x64</td></tr>
+<tr class="memdesc:a08fd3d01c158fe1d4001b2822581835c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajustar ancho de pulso de un servo. Payload: [servoNum, pulseTicks].  <br /></td></tr>
+<tr class="memitem:a4d161d9684186d56d2db87c93a4b971c" id="r_a4d161d9684186d56d2db87c93a4b971c"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a4d161d9684186d56d2db87c93a4b971c">CMD_CALIB_MODE</a> = 0x65</td></tr>
+<tr class="memdesc:a4d161d9684186d56d2db87c93a4b971c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entrar o salir del modo calibracion. Payload: [1=entrar, 0=salir].  <br /></td></tr>
+<tr class="memitem:a33409480deb1c996a9754db88ff93935" id="r_a33409480deb1c996a9754db88ff93935"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a33409480deb1c996a9754db88ff93935">EVT_ALIVE</a> = 0xF0</td></tr>
+<tr class="memdesc:a33409480deb1c996a9754db88ff93935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Respuesta de heartbeat: el MCU esta operativo.  <br /></td></tr>
+<tr class="memitem:ad9e943ca6b9d07dd9f37ea8bf8863d08" id="r_ad9e943ca6b9d07dd9f37ea8bf8863d08"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ad9e943ca6b9d07dd9f37ea8bf8863d08">EVT_NEW_BOX</a> = 0x70</td></tr>
+<tr class="memdesc:ad9e943ca6b9d07dd9f37ea8bf8863d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nueva caja detectada y clasificada. Payload: [type, servo, timeHi, timeLo].  <br /></td></tr>
+<tr class="memitem:a766f7ab12fda9ddfe0e9113664d8b344" id="r_a766f7ab12fda9ddfe0e9113664d8b344"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a766f7ab12fda9ddfe0e9113664d8b344">EVT_IR_SENSOR</a> = 0x71</td></tr>
+<tr class="memdesc:a766f7ab12fda9ddfe0e9113664d8b344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cambio de estado de un sensor IR. Payload: [sensorNum, state].  <br /></td></tr>
+<tr class="memitem:a47b8107ded653cf99a2b2c8b3ee4dd93" id="r_a47b8107ded653cf99a2b2c8b3ee4dd93"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a47b8107ded653cf99a2b2c8b3ee4dd93">EVT_SERVO_FIRED</a> = 0x72</td></tr>
+<tr class="memdesc:a47b8107ded653cf99a2b2c8b3ee4dd93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Servo disparado (caja clasificada). Payload: [servoNum].  <br /></td></tr>
+<tr class="memitem:ac4f2b1fe1f52d8d52f66fb4932bfaa9c" id="r_ac4f2b1fe1f52d8d52f66fb4932bfaa9c"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ac4f2b1fe1f52d8d52f66fb4932bfaa9c">EVT_DISTANCE</a> = 0x74</td></tr>
+<tr class="memdesc:ac4f2b1fe1f52d8d52f66fb4932bfaa9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distancia medida por HC-SR04. Payload: [distHi, distLo] en cm.  <br /></td></tr>
+<tr class="memitem:a4b41d792198bf85508d5ce5cef5fe38b" id="r_a4b41d792198bf85508d5ce5cef5fe38b"><td class="memItemLeft">constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a4b41d792198bf85508d5ce5cef5fe38b">EVT_CALIB_TIME</a> = 0x75</td></tr>
+<tr class="memdesc:a4b41d792198bf85508d5ce5cef5fe38b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo de calibracion medido. Payload: [sensorNum, timeHi, timeLo].  <br /></td></tr>
+<tr class="memitem:a239a94a973a3f71b1c2d760a699cbd87" id="r_a239a94a973a3f71b1c2d760a699cbd87"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a239a94a973a3f71b1c2d760a699cbd87">NUM_OUTPUTS</a> = 3</td></tr>
+<tr class="memdesc:a239a94a973a3f71b1c2d760a699cbd87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cantidad de salidas (servos) del clasificador.  <br /></td></tr>
+<tr class="memitem:aa9968bc3e121c7c6d510a31268d40096" id="r_aa9968bc3e121c7c6d510a31268d40096"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#aa9968bc3e121c7c6d510a31268d40096">NUM_IR_SENSORS</a> = 4</td></tr>
+<tr class="memdesc:aa9968bc3e121c7c6d510a31268d40096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cantidad total de sensores IR (S0 + S1 + S2 + S3).  <br /></td></tr>
+<tr class="memitem:aa85a6d9778a4693216258307e0e5a670" id="r_aa85a6d9778a4693216258307e0e5a670"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#aa85a6d9778a4693216258307e0e5a670">DEFAULT_TIME_SERVO0</a> = 1000</td></tr>
+<tr class="memdesc:aa85a6d9778a4693216258307e0e5a670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo de arribo por defecto del Servo 0: 2 s = 1000 ticks de 2 ms.  <br /></td></tr>
+<tr class="memitem:afe541f89185494865bce6a8cd8b6a767" id="r_afe541f89185494865bce6a8cd8b6a767"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#afe541f89185494865bce6a8cd8b6a767">DEFAULT_TIME_SERVO1</a> = 2000</td></tr>
+<tr class="memdesc:afe541f89185494865bce6a8cd8b6a767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo de arribo por defecto del Servo 1: 4 s = 2000 ticks de 2 ms.  <br /></td></tr>
+<tr class="memitem:a0190c77132940bb26d9006b61436ab84" id="r_a0190c77132940bb26d9006b61436ab84"><td class="memItemLeft">constexpr int&#160;</td><td class="memItemRight"><a class="el" href="#a0190c77132940bb26d9006b61436ab84">DEFAULT_TIME_SERVO2</a> = 3000</td></tr>
+<tr class="memdesc:a0190c77132940bb26d9006b61436ab84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiempo de arribo por defecto del Servo 2: 6 s = 3000 ticks de 2 ms.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Definiciones del protocolo de comunicacion UNER entre MCU y HMI Qt. </p>
+<p>Define los identificadores de comandos (Qt -&gt; MCU) y eventos (MCU -&gt; Qt) utilizados sobre el protocolo UNER, asi como las constantes de configuracion por defecto del sistema.</p>
+<p>Comandos (Qt -&gt; MCU):</p><ul>
+<li>CMD_ALIVE (0xF0): heartbeat bidireccional.</li>
+<li>CMD_START (0x50): iniciar clasificacion y encender cinta.</li>
+<li>CMD_STOP (0x51): detener clasificacion y apagar cinta.</li>
+<li>CMD_RESET (0x53): resetear sistema completo.</li>
+<li>CMD_SET_CONFIG (0x60): configurar tipos de salida [tipo0, tipo1, tipo2].</li>
+<li>CMD_SET_TIMES (0x61): configurar tiempo de arribo [servo, timeHi, timeLo].</li>
+<li>CMD_SET_THRESHOLD (0x62): configurar umbrales de distancia [grande, mediana, pequena].</li>
+<li>CMD_TEST_SERVO (0x63): test manual de un servo [servoNum].</li>
+<li>CMD_SET_SERVO_ANGLE (0x64): ajustar pulso de servo [servoNum, pulseTicks].</li>
+<li>CMD_CALIB_MODE (0x65): entrar/salir del modo calibracion [1=entrar, 0=salir].</li>
+</ul>
+<p>Eventos (MCU -&gt; Qt):</p><ul>
+<li>EVT_ALIVE (0xF0): respuesta heartbeat.</li>
+<li>EVT_NEW_BOX (0x70): nueva caja detectada [type, servo, timeHi, timeLo].</li>
+<li>EVT_IR_SENSOR (0x71): cambio de estado IR [sensorNum, state].</li>
+<li>EVT_SERVO_FIRED (0x72): servo disparado [servoNum].</li>
+<li>EVT_DISTANCE (0x74): distancia medida [distHi, distLo].</li>
+<li>EVT_CALIB_TIME (0x75): tiempo de calibracion [sensorNum, timeHi, timeLo].</li>
+</ul>
+<dl class="section author"><dt>Autor</dt><dd>Luciano </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>Mayo 2026 </dd></dl>
+
+<p class="definition">Definición en el archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+</div><a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentación de variables</h2>
+<a id="a0e0ef209ad00cab4f107b6b891b87d3b" name="a0e0ef209ad00cab4f107b6b891b87d3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e0ef209ad00cab4f107b6b891b87d3b">&#9670;&#160;</a></span>CMD_ALIVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_ALIVE = 0xF0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Heartbeat bidireccional: Qt envia, MCU responde con EVT_ALIVE. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00043">43</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="serialmanager_8cpp_source.html#l00225">SerialManager::onAliveTimer()</a>.</p>
+
+</div>
+</div>
+<a id="a5ca99098e60e25b96aa93289ed1a8efe" name="a5ca99098e60e25b96aa93289ed1a8efe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ca99098e60e25b96aa93289ed1a8efe">&#9670;&#160;</a></span>CMD_START</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_START = 0x50</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Iniciar clasificacion: activa la cinta (PC0 = LOW) y habilita la logica. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00046">46</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a0d3349223e822408e04517754fb5ffdb" name="a0d3349223e822408e04517754fb5ffdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d3349223e822408e04517754fb5ffdb">&#9670;&#160;</a></span>CMD_STOP</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_STOP = 0x51</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Detener clasificacion: apaga la cinta (PC0 = HIGH). </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00049">49</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a98551d0ffa32a1e60df1041d62d19c1b" name="a98551d0ffa32a1e60df1041d62d19c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98551d0ffa32a1e60df1041d62d19c1b">&#9670;&#160;</a></span>CMD_RESET</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_RESET = 0x53</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset completo: detiene cinta, limpia cola de cajas, sale de calibracion. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00052">52</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a9ef5587474168272a261f5818a9f3a48" name="a9ef5587474168272a261f5818a9f3a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ef5587474168272a261f5818a9f3a48">&#9670;&#160;</a></span>CMD_SET_CONFIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_SET_CONFIG = 0x60</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configurar tipos de caja por salida. Payload: [boxType0, boxType1, boxType2]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00055">55</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a22346d11975c26e79d3ec74425007523" name="a22346d11975c26e79d3ec74425007523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22346d11975c26e79d3ec74425007523">&#9670;&#160;</a></span>CMD_SET_TIMES</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_SET_TIMES = 0x61</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configurar tiempo de arribo de un servo. Payload: [servo, timeHi, timeLo]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00058">58</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="ae03c38daad9f3a6c5a3735a9917f185d" name="ae03c38daad9f3a6c5a3735a9917f185d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae03c38daad9f3a6c5a3735a9917f185d">&#9670;&#160;</a></span>CMD_SET_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_SET_THRESHOLD = 0x62</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configurar umbrales de distancia. Payload: [grande, mediana, pequena]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00061">61</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a020701ff98643f367f02d887b32060ff" name="a020701ff98643f367f02d887b32060ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a020701ff98643f367f02d887b32060ff">&#9670;&#160;</a></span>CMD_TEST_SERVO</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_TEST_SERVO = 0x63</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disparo manual de un servo para test. Payload: [servoNum]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00064">64</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a08fd3d01c158fe1d4001b2822581835c" name="a08fd3d01c158fe1d4001b2822581835c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08fd3d01c158fe1d4001b2822581835c">&#9670;&#160;</a></span>CMD_SET_SERVO_ANGLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_SET_SERVO_ANGLE = 0x64</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ajustar ancho de pulso de un servo. Payload: [servoNum, pulseTicks]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00067">67</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a4d161d9684186d56d2db87c93a4b971c" name="a4d161d9684186d56d2db87c93a4b971c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d161d9684186d56d2db87c93a4b971c">&#9670;&#160;</a></span>CMD_CALIB_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CMD_CALIB_MODE = 0x65</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Entrar o salir del modo calibracion. Payload: [1=entrar, 0=salir]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00070">70</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="mainwindow_8cpp_source.html#l00731">MainWindow::setSensorLed()</a>.</p>
+
+</div>
+</div>
+<a id="a33409480deb1c996a9754db88ff93935" name="a33409480deb1c996a9754db88ff93935"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33409480deb1c996a9754db88ff93935">&#9670;&#160;</a></span>EVT_ALIVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t EVT_ALIVE = 0xF0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Respuesta de heartbeat: el MCU esta operativo. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00077">77</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="ad9e943ca6b9d07dd9f37ea8bf8863d08" name="ad9e943ca6b9d07dd9f37ea8bf8863d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9e943ca6b9d07dd9f37ea8bf8863d08">&#9670;&#160;</a></span>EVT_NEW_BOX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t EVT_NEW_BOX = 0x70</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nueva caja detectada y clasificada. Payload: [type, servo, timeHi, timeLo]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00080">80</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a766f7ab12fda9ddfe0e9113664d8b344" name="a766f7ab12fda9ddfe0e9113664d8b344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a766f7ab12fda9ddfe0e9113664d8b344">&#9670;&#160;</a></span>EVT_IR_SENSOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t EVT_IR_SENSOR = 0x71</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cambio de estado de un sensor IR. Payload: [sensorNum, state]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00083">83</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a47b8107ded653cf99a2b2c8b3ee4dd93" name="a47b8107ded653cf99a2b2c8b3ee4dd93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b8107ded653cf99a2b2c8b3ee4dd93">&#9670;&#160;</a></span>EVT_SERVO_FIRED</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t EVT_SERVO_FIRED = 0x72</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Servo disparado (caja clasificada). Payload: [servoNum]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00086">86</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="ac4f2b1fe1f52d8d52f66fb4932bfaa9c" name="ac4f2b1fe1f52d8d52f66fb4932bfaa9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4f2b1fe1f52d8d52f66fb4932bfaa9c">&#9670;&#160;</a></span>EVT_DISTANCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t EVT_DISTANCE = 0x74</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distancia medida por HC-SR04. Payload: [distHi, distLo] en cm. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00089">89</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a4b41d792198bf85508d5ce5cef5fe38b" name="a4b41d792198bf85508d5ce5cef5fe38b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b41d792198bf85508d5ce5cef5fe38b">&#9670;&#160;</a></span>EVT_CALIB_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t EVT_CALIB_TIME = 0x75</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tiempo de calibracion medido. Payload: [sensorNum, timeHi, timeLo]. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00092">92</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a239a94a973a3f71b1c2d760a699cbd87" name="a239a94a973a3f71b1c2d760a699cbd87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239a94a973a3f71b1c2d760a699cbd87">&#9670;&#160;</a></span>NUM_OUTPUTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NUM_OUTPUTS = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cantidad de salidas (servos) del clasificador. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00099">99</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="aa9968bc3e121c7c6d510a31268d40096" name="aa9968bc3e121c7c6d510a31268d40096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9968bc3e121c7c6d510a31268d40096">&#9670;&#160;</a></span>NUM_IR_SENSORS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NUM_IR_SENSORS = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cantidad total de sensores IR (S0 + S1 + S2 + S3). </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00102">102</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="aa85a6d9778a4693216258307e0e5a670" name="aa85a6d9778a4693216258307e0e5a670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa85a6d9778a4693216258307e0e5a670">&#9670;&#160;</a></span>DEFAULT_TIME_SERVO0</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DEFAULT_TIME_SERVO0 = 1000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tiempo de arribo por defecto del Servo 0: 2 s = 1000 ticks de 2 ms. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00105">105</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="afe541f89185494865bce6a8cd8b6a767" name="afe541f89185494865bce6a8cd8b6a767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe541f89185494865bce6a8cd8b6a767">&#9670;&#160;</a></span>DEFAULT_TIME_SERVO1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DEFAULT_TIME_SERVO1 = 2000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tiempo de arribo por defecto del Servo 1: 4 s = 2000 ticks de 2 ms. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00108">108</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+<a id="a0190c77132940bb26d9006b61436ab84" name="a0190c77132940bb26d9006b61436ab84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0190c77132940bb26d9006b61436ab84">&#9670;&#160;</a></span>DEFAULT_TIME_SERVO2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DEFAULT_TIME_SERVO2 = 3000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tiempo de arribo por defecto del Servo 2: 6 s = 3000 ticks de 2 ms. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="protocol_8h_source.html#l00111">111</a> del archivo <a class="el" href="protocol_8h_source.html">protocol.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="protocol_8h.html">protocol.h</a></li>
+    <li class="footer">Generado el <span class="timestamp"></span> para Clasificador de Cajas - HMI Qt por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

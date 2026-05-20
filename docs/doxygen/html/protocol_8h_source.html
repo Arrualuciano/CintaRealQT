@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Clasificador de Cajas - HMI Qt: Archivo de código fuente protocol.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Clasificador de Cajas - HMI Qt<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Interfaz grafica de usuario para supervision y control de la cinta clasificadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('protocol_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">protocol.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="protocol_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file    protocol.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief   Definiciones del protocolo de comunicacion UNER entre MCU y HMI Qt.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @details Define los identificadores de comandos (Qt -&gt; MCU) y eventos</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *          (MCU -&gt; Qt) utilizados sobre el protocolo UNER, asi como las</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *          constantes de configuracion por defecto del sistema.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *          Comandos (Qt -&gt; MCU):</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *          - CMD_ALIVE (0xF0):         heartbeat bidireccional.</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *          - CMD_START (0x50):         iniciar clasificacion y encender cinta.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> *          - CMD_STOP  (0x51):         detener clasificacion y apagar cinta.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> *          - CMD_RESET (0x53):         resetear sistema completo.</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *          - CMD_SET_CONFIG (0x60):    configurar tipos de salida [tipo0, tipo1, tipo2].</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *          - CMD_SET_TIMES  (0x61):    configurar tiempo de arribo [servo, timeHi, timeLo].</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> *          - CMD_SET_THRESHOLD (0x62): configurar umbrales de distancia [grande, mediana, pequena].</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *          - CMD_TEST_SERVO (0x63):    test manual de un servo [servoNum].</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> *          - CMD_SET_SERVO_ANGLE (0x64): ajustar pulso de servo [servoNum, pulseTicks].</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *          - CMD_CALIB_MODE (0x65):    entrar/salir del modo calibracion [1=entrar, 0=salir].</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> *          Eventos (MCU -&gt; Qt):</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> *          - EVT_ALIVE (0xF0):        respuesta heartbeat.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> *          - EVT_NEW_BOX (0x70):      nueva caja detectada [type, servo, timeHi, timeLo].</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> *          - EVT_IR_SENSOR (0x71):    cambio de estado IR [sensorNum, state].</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> *          - EVT_SERVO_FIRED (0x72):  servo disparado [servoNum].</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> *          - EVT_DISTANCE (0x74):     distancia medida [distHi, distLo].</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> *          - EVT_CALIB_TIME (0x75):   tiempo de calibracion [sensorNum, timeHi, timeLo].</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @author  Luciano</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * @date    Mayo 2026</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#ifndef PROTOCOL_H</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define PROTOCOL_H</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/* =========================================================================</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * Comandos Qt -&gt; MCU</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * ====================================================================== */</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/** @brief Heartbeat bidireccional: Qt envia, MCU responde con EVT_ALIVE. */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="protocol_8h.html#a0e0ef209ad00cab4f107b6b891b87d3b">   43</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a0e0ef209ad00cab4f107b6b891b87d3b">CMD_ALIVE</a>           = 0xF0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/** @brief Iniciar clasificacion: activa la cinta (PC0 = LOW) y habilita la logica. */</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="protocol_8h.html#a5ca99098e60e25b96aa93289ed1a8efe">   46</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a5ca99098e60e25b96aa93289ed1a8efe">CMD_START</a>           = 0x50;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"></span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/** @brief Detener clasificacion: apaga la cinta (PC0 = HIGH). */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="protocol_8h.html#a0d3349223e822408e04517754fb5ffdb">   49</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a0d3349223e822408e04517754fb5ffdb">CMD_STOP</a>            = 0x51;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"></span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/** @brief Reset completo: detiene cinta, limpia cola de cajas, sale de calibracion. */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="protocol_8h.html#a98551d0ffa32a1e60df1041d62d19c1b">   52</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a98551d0ffa32a1e60df1041d62d19c1b">CMD_RESET</a>           = 0x53;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/** @brief Configurar tipos de caja por salida. Payload: [boxType0, boxType1, boxType2]. */</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="protocol_8h.html#a9ef5587474168272a261f5818a9f3a48">   55</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a9ef5587474168272a261f5818a9f3a48">CMD_SET_CONFIG</a>      = 0x60;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/** @brief Configurar tiempo de arribo de un servo. Payload: [servo, timeHi, timeLo]. */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="protocol_8h.html#a22346d11975c26e79d3ec74425007523">   58</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a22346d11975c26e79d3ec74425007523">CMD_SET_TIMES</a>       = 0x61;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"></span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/** @brief Configurar umbrales de distancia. Payload: [grande, mediana, pequena]. */</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="protocol_8h.html#ae03c38daad9f3a6c5a3735a9917f185d">   61</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#ae03c38daad9f3a6c5a3735a9917f185d">CMD_SET_THRESHOLD</a>   = 0x62;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">/** @brief Disparo manual de un servo para test. Payload: [servoNum]. */</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="protocol_8h.html#a020701ff98643f367f02d887b32060ff">   64</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a020701ff98643f367f02d887b32060ff">CMD_TEST_SERVO</a>      = 0x63;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"></span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/** @brief Ajustar ancho de pulso de un servo. Payload: [servoNum, pulseTicks]. */</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="protocol_8h.html#a08fd3d01c158fe1d4001b2822581835c">   67</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a08fd3d01c158fe1d4001b2822581835c">CMD_SET_SERVO_ANGLE</a> = 0x64;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"></span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/** @brief Entrar o salir del modo calibracion. Payload: [1=entrar, 0=salir]. */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="protocol_8h.html#a4d161d9684186d56d2db87c93a4b971c">   70</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a4d161d9684186d56d2db87c93a4b971c">CMD_CALIB_MODE</a>      = 0x65;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/* =========================================================================</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * Eventos MCU -&gt; Qt</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * ====================================================================== */</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"></span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/** @brief Respuesta de heartbeat: el MCU esta operativo. */</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="protocol_8h.html#a33409480deb1c996a9754db88ff93935">   77</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a33409480deb1c996a9754db88ff93935">EVT_ALIVE</a>           = 0xF0;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"></span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">/** @brief Nueva caja detectada y clasificada. Payload: [type, servo, timeHi, timeLo]. */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="protocol_8h.html#ad9e943ca6b9d07dd9f37ea8bf8863d08">   80</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#ad9e943ca6b9d07dd9f37ea8bf8863d08">EVT_NEW_BOX</a>         = 0x70;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/** @brief Cambio de estado de un sensor IR. Payload: [sensorNum, state]. */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="protocol_8h.html#a766f7ab12fda9ddfe0e9113664d8b344">   83</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a766f7ab12fda9ddfe0e9113664d8b344">EVT_IR_SENSOR</a>       = 0x71;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">/** @brief Servo disparado (caja clasificada). Payload: [servoNum]. */</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="protocol_8h.html#a47b8107ded653cf99a2b2c8b3ee4dd93">   86</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a47b8107ded653cf99a2b2c8b3ee4dd93">EVT_SERVO_FIRED</a>     = 0x72;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"></span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">/** @brief Distancia medida por HC-SR04. Payload: [distHi, distLo] en cm. */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="protocol_8h.html#ac4f2b1fe1f52d8d52f66fb4932bfaa9c">   89</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#ac4f2b1fe1f52d8d52f66fb4932bfaa9c">EVT_DISTANCE</a>        = 0x74;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"></span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">/** @brief Tiempo de calibracion medido. Payload: [sensorNum, timeHi, timeLo]. */</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="protocol_8h.html#a4b41d792198bf85508d5ce5cef5fe38b">   92</a></span><span class="keyword">constexpr</span> uint8_t <a class="code hl_variable" href="protocol_8h.html#a4b41d792198bf85508d5ce5cef5fe38b">EVT_CALIB_TIME</a>      = 0x75;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">/* =========================================================================</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * Constantes del sistema</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * ====================================================================== */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/** @brief Cantidad de salidas (servos) del clasificador. */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="protocol_8h.html#a239a94a973a3f71b1c2d760a699cbd87">   99</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="protocol_8h.html#a239a94a973a3f71b1c2d760a699cbd87">NUM_OUTPUTS</a>    = 3;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"></span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/** @brief Cantidad total de sensores IR (S0 + S1 + S2 + S3). */</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="protocol_8h.html#aa9968bc3e121c7c6d510a31268d40096">  102</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="protocol_8h.html#aa9968bc3e121c7c6d510a31268d40096">NUM_IR_SENSORS</a> = 4;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">/** @brief Tiempo de arribo por defecto del Servo 0: 2 s = 1000 ticks de 2 ms. */</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="protocol_8h.html#aa85a6d9778a4693216258307e0e5a670">  105</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="protocol_8h.html#aa85a6d9778a4693216258307e0e5a670">DEFAULT_TIME_SERVO0</a> = 1000;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"></span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">/** @brief Tiempo de arribo por defecto del Servo 1: 4 s = 2000 ticks de 2 ms. */</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="protocol_8h.html#afe541f89185494865bce6a8cd8b6a767">  108</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="protocol_8h.html#afe541f89185494865bce6a8cd8b6a767">DEFAULT_TIME_SERVO1</a> = 2000;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"></span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">/** @brief Tiempo de arribo por defecto del Servo 2: 6 s = 3000 ticks de 2 ms. */</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="protocol_8h.html#a0190c77132940bb26d9006b61436ab84">  111</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="protocol_8h.html#a0190c77132940bb26d9006b61436ab84">DEFAULT_TIME_SERVO2</a> = 3000;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif </span><span class="comment">// PROTOCOL_H</span></div>
+<div class="ttc" id="aprotocol_8h_html_a0190c77132940bb26d9006b61436ab84"><div class="ttname"><a href="protocol_8h.html#a0190c77132940bb26d9006b61436ab84">DEFAULT_TIME_SERVO2</a></div><div class="ttdeci">constexpr int DEFAULT_TIME_SERVO2</div><div class="ttdoc">Tiempo de arribo por defecto del Servo 2: 6 s = 3000 ticks de 2 ms.</div><div class="ttdef"><b>Definition</b> <a href="#l00111">protocol.h:111</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a020701ff98643f367f02d887b32060ff"><div class="ttname"><a href="protocol_8h.html#a020701ff98643f367f02d887b32060ff">CMD_TEST_SERVO</a></div><div class="ttdeci">constexpr uint8_t CMD_TEST_SERVO</div><div class="ttdoc">Disparo manual de un servo para test. Payload: [servoNum].</div><div class="ttdef"><b>Definition</b> <a href="#l00064">protocol.h:64</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a08fd3d01c158fe1d4001b2822581835c"><div class="ttname"><a href="protocol_8h.html#a08fd3d01c158fe1d4001b2822581835c">CMD_SET_SERVO_ANGLE</a></div><div class="ttdeci">constexpr uint8_t CMD_SET_SERVO_ANGLE</div><div class="ttdoc">Ajustar ancho de pulso de un servo. Payload: [servoNum, pulseTicks].</div><div class="ttdef"><b>Definition</b> <a href="#l00067">protocol.h:67</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a0d3349223e822408e04517754fb5ffdb"><div class="ttname"><a href="protocol_8h.html#a0d3349223e822408e04517754fb5ffdb">CMD_STOP</a></div><div class="ttdeci">constexpr uint8_t CMD_STOP</div><div class="ttdoc">Detener clasificacion: apaga la cinta (PC0 = HIGH).</div><div class="ttdef"><b>Definition</b> <a href="#l00049">protocol.h:49</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a0e0ef209ad00cab4f107b6b891b87d3b"><div class="ttname"><a href="protocol_8h.html#a0e0ef209ad00cab4f107b6b891b87d3b">CMD_ALIVE</a></div><div class="ttdeci">constexpr uint8_t CMD_ALIVE</div><div class="ttdoc">Heartbeat bidireccional: Qt envia, MCU responde con EVT_ALIVE.</div><div class="ttdef"><b>Definition</b> <a href="#l00043">protocol.h:43</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a22346d11975c26e79d3ec74425007523"><div class="ttname"><a href="protocol_8h.html#a22346d11975c26e79d3ec74425007523">CMD_SET_TIMES</a></div><div class="ttdeci">constexpr uint8_t CMD_SET_TIMES</div><div class="ttdoc">Configurar tiempo de arribo de un servo. Payload: [servo, timeHi, timeLo].</div><div class="ttdef"><b>Definition</b> <a href="#l00058">protocol.h:58</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a239a94a973a3f71b1c2d760a699cbd87"><div class="ttname"><a href="protocol_8h.html#a239a94a973a3f71b1c2d760a699cbd87">NUM_OUTPUTS</a></div><div class="ttdeci">constexpr int NUM_OUTPUTS</div><div class="ttdoc">Cantidad de salidas (servos) del clasificador.</div><div class="ttdef"><b>Definition</b> <a href="#l00099">protocol.h:99</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a33409480deb1c996a9754db88ff93935"><div class="ttname"><a href="protocol_8h.html#a33409480deb1c996a9754db88ff93935">EVT_ALIVE</a></div><div class="ttdeci">constexpr uint8_t EVT_ALIVE</div><div class="ttdoc">Respuesta de heartbeat: el MCU esta operativo.</div><div class="ttdef"><b>Definition</b> <a href="#l00077">protocol.h:77</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a47b8107ded653cf99a2b2c8b3ee4dd93"><div class="ttname"><a href="protocol_8h.html#a47b8107ded653cf99a2b2c8b3ee4dd93">EVT_SERVO_FIRED</a></div><div class="ttdeci">constexpr uint8_t EVT_SERVO_FIRED</div><div class="ttdoc">Servo disparado (caja clasificada). Payload: [servoNum].</div><div class="ttdef"><b>Definition</b> <a href="#l00086">protocol.h:86</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a4b41d792198bf85508d5ce5cef5fe38b"><div class="ttname"><a href="protocol_8h.html#a4b41d792198bf85508d5ce5cef5fe38b">EVT_CALIB_TIME</a></div><div class="ttdeci">constexpr uint8_t EVT_CALIB_TIME</div><div class="ttdoc">Tiempo de calibracion medido. Payload: [sensorNum, timeHi, timeLo].</div><div class="ttdef"><b>Definition</b> <a href="#l00092">protocol.h:92</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a4d161d9684186d56d2db87c93a4b971c"><div class="ttname"><a href="protocol_8h.html#a4d161d9684186d56d2db87c93a4b971c">CMD_CALIB_MODE</a></div><div class="ttdeci">constexpr uint8_t CMD_CALIB_MODE</div><div class="ttdoc">Entrar o salir del modo calibracion. Payload: [1=entrar, 0=salir].</div><div class="ttdef"><b>Definition</b> <a href="#l00070">protocol.h:70</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a5ca99098e60e25b96aa93289ed1a8efe"><div class="ttname"><a href="protocol_8h.html#a5ca99098e60e25b96aa93289ed1a8efe">CMD_START</a></div><div class="ttdeci">constexpr uint8_t CMD_START</div><div class="ttdoc">Iniciar clasificacion: activa la cinta (PC0 = LOW) y habilita la logica.</div><div class="ttdef"><b>Definition</b> <a href="#l00046">protocol.h:46</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a766f7ab12fda9ddfe0e9113664d8b344"><div class="ttname"><a href="protocol_8h.html#a766f7ab12fda9ddfe0e9113664d8b344">EVT_IR_SENSOR</a></div><div class="ttdeci">constexpr uint8_t EVT_IR_SENSOR</div><div class="ttdoc">Cambio de estado de un sensor IR. Payload: [sensorNum, state].</div><div class="ttdef"><b>Definition</b> <a href="#l00083">protocol.h:83</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a98551d0ffa32a1e60df1041d62d19c1b"><div class="ttname"><a href="protocol_8h.html#a98551d0ffa32a1e60df1041d62d19c1b">CMD_RESET</a></div><div class="ttdeci">constexpr uint8_t CMD_RESET</div><div class="ttdoc">Reset completo: detiene cinta, limpia cola de cajas, sale de calibracion.</div><div class="ttdef"><b>Definition</b> <a href="#l00052">protocol.h:52</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a9ef5587474168272a261f5818a9f3a48"><div class="ttname"><a href="protocol_8h.html#a9ef5587474168272a261f5818a9f3a48">CMD_SET_CONFIG</a></div><div class="ttdeci">constexpr uint8_t CMD_SET_CONFIG</div><div class="ttdoc">Configurar tipos de caja por salida. Payload: [boxType0, boxType1, boxType2].</div><div class="ttdef"><b>Definition</b> <a href="#l00055">protocol.h:55</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_aa85a6d9778a4693216258307e0e5a670"><div class="ttname"><a href="protocol_8h.html#aa85a6d9778a4693216258307e0e5a670">DEFAULT_TIME_SERVO0</a></div><div class="ttdeci">constexpr int DEFAULT_TIME_SERVO0</div><div class="ttdoc">Tiempo de arribo por defecto del Servo 0: 2 s = 1000 ticks de 2 ms.</div><div class="ttdef"><b>Definition</b> <a href="#l00105">protocol.h:105</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_aa9968bc3e121c7c6d510a31268d40096"><div class="ttname"><a href="protocol_8h.html#aa9968bc3e121c7c6d510a31268d40096">NUM_IR_SENSORS</a></div><div class="ttdeci">constexpr int NUM_IR_SENSORS</div><div class="ttdoc">Cantidad total de sensores IR (S0 + S1 + S2 + S3).</div><div class="ttdef"><b>Definition</b> <a href="#l00102">protocol.h:102</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_ac4f2b1fe1f52d8d52f66fb4932bfaa9c"><div class="ttname"><a href="protocol_8h.html#ac4f2b1fe1f52d8d52f66fb4932bfaa9c">EVT_DISTANCE</a></div><div class="ttdeci">constexpr uint8_t EVT_DISTANCE</div><div class="ttdoc">Distancia medida por HC-SR04. Payload: [distHi, distLo] en cm.</div><div class="ttdef"><b>Definition</b> <a href="#l00089">protocol.h:89</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_ad9e943ca6b9d07dd9f37ea8bf8863d08"><div class="ttname"><a href="protocol_8h.html#ad9e943ca6b9d07dd9f37ea8bf8863d08">EVT_NEW_BOX</a></div><div class="ttdeci">constexpr uint8_t EVT_NEW_BOX</div><div class="ttdoc">Nueva caja detectada y clasificada. Payload: [type, servo, timeHi, timeLo].</div><div class="ttdef"><b>Definition</b> <a href="#l00080">protocol.h:80</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_ae03c38daad9f3a6c5a3735a9917f185d"><div class="ttname"><a href="protocol_8h.html#ae03c38daad9f3a6c5a3735a9917f185d">CMD_SET_THRESHOLD</a></div><div class="ttdeci">constexpr uint8_t CMD_SET_THRESHOLD</div><div class="ttdoc">Configurar umbrales de distancia. Payload: [grande, mediana, pequena].</div><div class="ttdef"><b>Definition</b> <a href="#l00061">protocol.h:61</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_afe541f89185494865bce6a8cd8b6a767"><div class="ttname"><a href="protocol_8h.html#afe541f89185494865bce6a8cd8b6a767">DEFAULT_TIME_SERVO1</a></div><div class="ttdeci">constexpr int DEFAULT_TIME_SERVO1</div><div class="ttdoc">Tiempo de arribo por defecto del Servo 1: 4 s = 2000 ticks de 2 ms.</div><div class="ttdef"><b>Definition</b> <a href="#l00108">protocol.h:108</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="protocol_8h.html">protocol.h</a></li>
+    <li class="footer">Generado el <span class="timestamp"></span> para Clasificador de Cajas - HMI Qt por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

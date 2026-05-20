@@ -1,0 +1,5 @@
+<map id="MainWindow::onRefreshTick" name="MainWindow::onRefreshTick">
+<area shape="rect" id="Node000001" title="Timer de refresco de UI a 10 Hz: actualiza cola de cajas." alt="" coords="5,5,195,32"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a15eebf3d5aac3f47bbfe955428b6f64b" title="Agrega un mensaje al log de comunicacion con timestamp." alt="" coords="243,5,364,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,16,230,19,225,19,195,21"/>
+</map>

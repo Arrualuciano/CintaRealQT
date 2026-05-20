@@ -1,0 +1,13 @@
+<map id="MainWindow::buildCalibrationPage" name="MainWindow::buildCalibrationPage">
+<area shape="rect" id="Node000001" title="Construye la pagina de Calibracion." alt="" coords="5,131,229,157"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a9081339f72d997b6afd3485169c8a5b2" title="Envia los angulos de servo configurados al MCU." alt="" coords="292,5,477,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,128,200,94,276,58,295,52,290,55,278,62,203,99,143,132"/>
+<area shape="rect" id="Node000003" href="$class_main_window.html#ac072a152cfe7652ccad3270ca10dd3c3" title="Envia los umbrales de distancia configurados al MCU." alt="" coords="277,72,492,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,127,307,101,303,104,182,133"/>
+<area shape="rect" id="Node000004" href="$class_main_window.html#a25bb2e84541c2329e9f6db2bbbfe6f45" title="Resetea los tiempos de arribo a los valores por defecto (2s/4s/6s)." alt="" coords="287,123,482,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,141,274,143,269,145,230,147"/>
+<area shape="rect" id="Node000005" href="$class_main_window.html#a6d442443dc1a8b4939ecec8cd5dce904" title="Inicia o detiene el modo calibracion en el MCU." alt="" coords="280,189,488,216"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="182,155,308,184,303,187,181,161"/>
+<area shape="rect" id="Node000006" href="$class_main_window.html#a6a6851ed81ac01eb23c642c836e63578" title="Dispara un servo manualmente para test." alt="" coords="296,240,473,267"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="141,155,202,190,278,226,301,236,296,235,276,230,199,195,140,160"/>
+</map>

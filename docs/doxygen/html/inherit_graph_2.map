@@ -1,0 +1,5 @@
+<map id="Gráfico de jerarquía de clases" name="Gráfico de jerarquía de clases">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,75,32"/>
+<area shape="rect" id="Node000001" href="$class_serial_manager.html" title="Clase que gestiona la comunicacion serie con el MCU." alt="" coords="123,5,227,32"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="90,16,125,18,120,19,90,21"/>
+</map>

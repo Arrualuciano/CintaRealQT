@@ -1,0 +1,5 @@
+<map id="MainWindow::onFrameReceived" name="MainWindow::onFrameReceived">
+<area shape="rect" id="Node000001" title="Despacha las tramas recibidas del MCU y actualiza la UI." alt="" coords="233,5,443,32"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title="Constructor. Construye la UI, aplica estilos y conecta senales." alt="" coords="5,5,185,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,19,185,21,185,16,220,19"/>
+</map>

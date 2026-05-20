@@ -1,0 +1,10 @@
+<map id="MainWindow::setPage" name="MainWindow::setPage">
+<area shape="rect" id="Node000001" title="Cambia la pagina visible en el area central." alt="" coords="648,31,801,57"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a0531fa9a3d2a53bacd3923ea4d4cef5a" title="Construye el panel lateral de navegacion." alt="" coords="425,5,600,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="631,33,601,32,601,27,636,33"/>
+<area shape="rect" id="Node000003" href="$class_main_window.html#afe1bceaad866b6fed583ba83245ae195" title="Construye todos los widgets de la interfaz." alt="" coords="233,31,377,57"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="630,44,377,47,377,41,635,44"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="413,31,378,38,377,33,407,31"/>
+<area shape="rect" id="Node000004" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title="Constructor. Construye la UI, aplica estilos y conecta senales." alt="" coords="5,31,185,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="214,44,185,47,185,41,220,44"/>
+</map>

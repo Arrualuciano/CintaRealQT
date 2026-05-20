@@ -1,0 +1,5 @@
+<map id="SerialManager::onAliveTimer" name="SerialManager::onAliveTimer">
+<area shape="rect" id="Node000001" title="Slot del timer de heartbeat: envia CMD_ALIVE cada 500 ms." alt="" coords="5,5,194,32"/>
+<area shape="rect" id="Node000002" href="$class_serial_manager.html#ab9fb00276941e33fe0c7be0f42e0246e" title="Envia un comando al MCU encapsulado en una trama UNER." alt="" coords="242,5,442,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,16,229,19,223,19,194,21"/>
+</map>

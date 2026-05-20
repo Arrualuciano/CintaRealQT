@@ -1,0 +1,5 @@
+<map id="SerialManager::onAliveTimer" name="SerialManager::onAliveTimer">
+<area shape="rect" id="Node000001" title="Slot del timer de heartbeat: envia CMD_ALIVE cada 500 ms." alt="" coords="249,5,437,32"/>
+<area shape="rect" id="Node000002" href="$class_serial_manager.html#aa2d090c2f7dc822a3fb1f3ac432abd0d" title="Constructor. Crea el QSerialPort y el timer de heartbeat." alt="" coords="5,5,201,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,19,201,21,201,16,235,19"/>
+</map>

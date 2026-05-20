@@ -1,0 +1,7 @@
+<map id="SerialManager::connected" name="SerialManager::connected">
+<area shape="rect" id="Node000001" title="Emitida al conectar exitosamente al puerto serie." alt="" coords="236,31,408,57"/>
+<area shape="rect" id="Node000002" href="$class_serial_manager.html#a0a9b4036f9b600ba62ee50e43320deff" title="Abre el puerto serie especificado a 115200 baud, 8N1." alt="" coords="5,5,188,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,33,188,32,188,26,223,32"/>
+<area shape="rect" id="Node000003" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title="Constructor. Construye la UI, aplica estilos y conecta senales." alt="" coords="7,56,186,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,56,187,62,186,57,223,55"/>
+</map>

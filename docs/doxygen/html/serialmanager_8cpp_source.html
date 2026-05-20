@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Clasificador de Cajas - HMI Qt: Archivo de código fuente serialmanager.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Clasificador de Cajas - HMI Qt<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Interfaz grafica de usuario para supervision y control de la cinta clasificadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('serialmanager_8cpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">serialmanager.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="serialmanager_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file    serialmanager.cpp</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief   Implementacion del modulo de comunicacion serie con protocolo UNER.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @details Gestiona la conexion fisica al puerto serie (115200, 8N1) y la</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *          codificacion/decodificacion de tramas UNER. Envio de heartbeat</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *          periodico cada 500 ms para mantener la conexion activa.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *          La FSM de recepcion es identica a la implementada en Comm.c del</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *          firmware, garantizando compatibilidad bidireccional.</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * @author  Luciano</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * @date    Mayo 2026</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="serialmanager_8h.html">serialmanager.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/* =========================================================================</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * Constructor / Destructor</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * ====================================================================== */</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @brief Constructor. Inicializa el puerto serie y el timer de heartbeat.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @param parent Widget padre para el sistema de ownership de Qt.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_serial_manager.html#aa2d090c2f7dc822a3fb1f3ac432abd0d">   26</a></span><a class="code hl_function" href="class_serial_manager.html#aa2d090c2f7dc822a3fb1f3ac432abd0d">SerialManager::SerialManager</a>(QObject *parent)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    : QObject(parent)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    , <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>(new QSerialPort(this))</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    , <a class="code hl_variable" href="class_serial_manager.html#a1bcbfd31f1ec96a14b57ff9ee143585b">aliveTimer</a>(new QTimer(this))</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    connect(<a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>, &amp;QSerialPort::readyRead, <span class="keyword">this</span>, &amp;SerialManager::onReadyRead);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    connect(<a class="code hl_variable" href="class_serial_manager.html#a1bcbfd31f1ec96a14b57ff9ee143585b">aliveTimer</a>, &amp;QTimer::timeout, <span class="keyword">this</span>, &amp;<a class="code hl_function" href="class_serial_manager.html#a978739631dbc4875c5151668e1452778">SerialManager::onAliveTimer</a>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"></span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * @brief Destructor. Cierra el puerto serie si esta abierto.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a8d8fdd485791ee860709268140ea56c1">   38</a></span><a class="code hl_function" href="class_serial_manager.html#a8d8fdd485791ee860709268140ea56c1">SerialManager::~SerialManager</a>() {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_function" href="class_serial_manager.html#a0f94a12c023b54a672e0e99442e5f89c">disconnectPort</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/* =========================================================================</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * Gestion de conexion</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * ====================================================================== */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"></span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * @brief Retorna la lista de puertos serie disponibles en el sistema.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @return QStringList con los nombres de los puertos detectados.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a3d7ab73e92bc56d6ba3c1c600367f4b3">   50</a></span>QStringList <a class="code hl_function" href="class_serial_manager.html#a3d7ab73e92bc56d6ba3c1c600367f4b3">SerialManager::availablePorts</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    QStringList list;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;info : QSerialPortInfo::availablePorts())</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        list &lt;&lt; info.portName();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> list;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * @brief Abre el puerto serie con la configuracion requerida por el MCU.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * @details Configuracion: 115200 baud, 8 bits de datos, sin paridad, 1 stop bit.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> *          Al conectar exitosamente, reinicia la FSM de recepcion e inicia</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> *          el timer de heartbeat (500 ms).</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * @param portName Nombre del puerto (ej: &quot;COM3&quot;).</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * @return true si la conexion fue exitosa, false si fallo.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a0a9b4036f9b600ba62ee50e43320deff">   67</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_serial_manager.html#a0a9b4036f9b600ba62ee50e43320deff">SerialManager::connectPort</a>(<span class="keyword">const</span> QString &amp;portName) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;isOpen()) <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;close();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;setPortName(portName);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;setBaudRate(115200);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;setDataBits(QSerialPort::Data8);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;setParity(QSerialPort::NoParity);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;setStopBits(QSerialPort::OneStop);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;open(QIODevice::ReadWrite)) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        emit <a class="code hl_function" href="class_serial_manager.html#aba3a12f136892744725b45a0f2d33f96">connectionError</a>(<a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;errorString());</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_variable" href="class_serial_manager.html#a1bcbfd31f1ec96a14b57ff9ee143585b">aliveTimer</a>-&gt;start(500);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    emit <a class="code hl_function" href="class_serial_manager.html#a6800394366d8b7b2b3daeda81caaf1b7">connected</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"></span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * @brief Cierra el puerto serie y detiene el heartbeat.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> * @details Emite la senal disconnected() si el puerto estaba abierto.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a0f94a12c023b54a672e0e99442e5f89c">   92</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a0f94a12c023b54a672e0e99442e5f89c">SerialManager::disconnectPort</a>() {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_variable" href="class_serial_manager.html#a1bcbfd31f1ec96a14b57ff9ee143585b">aliveTimer</a>-&gt;stop();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;isOpen()) {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;close();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        emit <a class="code hl_function" href="class_serial_manager.html#a35c3260cdd251e6628824ff41fb1deee">disconnected</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"></span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * @brief Consulta si el puerto serie esta abierto.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> * @return true si el puerto esta abierto y listo para comunicar.</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a3799ff52382c56504c1b1a79194b66c6">  104</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_serial_manager.html#a3799ff52382c56504c1b1a79194b66c6">SerialManager::isConnected</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;isOpen();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">/* =========================================================================</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * Envio de tramas UNER</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> * ====================================================================== */</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"></span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> * @brief Construye y envia una trama UNER completa al MCU.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> * @details Formato de trama:</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"> *          @code</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> *          [ &#39;U&#39; | &#39;N&#39; | &#39;E&#39; | &#39;R&#39; | LEN | &#39;:&#39; | CMDID | DATA... | CKS ]</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> *          @endcode</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> *          LEN = 1 (CMDID) + data.size() + 1 (CKS).</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> *          CKS = XOR de todos los bytes desde &#39;U&#39; hasta el ultimo dato.</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> * @param cmdId Identificador del comando a enviar.</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"> * @param data  Bytes de datos adicionales (puede estar vacio).</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="}">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="class_serial_manager.html#ab9fb00276941e33fe0c7be0f42e0246e">  125</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#ab9fb00276941e33fe0c7be0f42e0246e">SerialManager::sendCommand</a>(uint8_t cmdId, <span class="keyword">const</span> QByteArray &amp;data) {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;isOpen()) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    uint8_t totalLen = 1 + data.size() + 1; <span class="comment">/* CMDID + data + CKS */</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="comment">/* Calcular checksum XOR */</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    uint8_t cks = <span class="charliteral">&#39;U&#39;</span> ^ <span class="charliteral">&#39;N&#39;</span> ^ <span class="charliteral">&#39;E&#39;</span> ^ <span class="charliteral">&#39;R&#39;</span> ^ totalLen ^ <span class="charliteral">&#39;:&#39;</span> ^ cmdId;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> b : data) cks ^= <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(b);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="comment">/* Construir trama completa */</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    QByteArray frame;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    frame.append(<span class="charliteral">&#39;U&#39;</span>);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    frame.append(<span class="charliteral">&#39;N&#39;</span>);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    frame.append(<span class="charliteral">&#39;E&#39;</span>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    frame.append(<span class="charliteral">&#39;R&#39;</span>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    frame.append(<span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(totalLen));</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    frame.append(<span class="charliteral">&#39;:&#39;</span>);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    frame.append(<span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(cmdId));</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    frame.append(data);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    frame.append(<span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(cks));</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;write(frame);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>}</div>
+</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/* =========================================================================</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> * Recepcion y decodificacion</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"> * ====================================================================== */</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"></span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"> * @brief Slot invocado por QSerialPort cuando hay datos disponibles.</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment"> * @details Lee todos los bytes disponibles y los pasa uno a uno a la FSM</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment"> *          de decodificacion UNER.</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keywordtype">void</span> SerialManager::onReadyRead() {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    QByteArray raw = <a class="code hl_variable" href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">port</a>-&gt;readAll();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> b : raw)</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <a class="code hl_function" href="class_serial_manager.html#a16fd39bf0f6f355cfdf4cf6613af55fc">processRxByte</a>(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(b));</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>}</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment"></span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment"> * @brief Procesa un byte recibido a traves de la FSM de decodificacion UNER.</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment"> * @details La FSM sincroniza con el encabezado &quot;UNER&quot;, captura LEN, el</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment"> *          separador &#39;:&#39;, y finalmente el payload byte a byte hasta verificar</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"> *          el checksum. Al completar una trama valida, emite frameReceived().</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> * @param byte Byte recibido del puerto serie.</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a16fd39bf0f6f355cfdf4cf6613af55fc">  174</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a16fd39bf0f6f355cfdf4cf6613af55fc">SerialManager::processRxByte</a>(uint8_t <span class="keywordtype">byte</span>) {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a>) {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a>:</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">if</span> (<span class="keywordtype">byte</span> == <span class="charliteral">&#39;U&#39;</span>) <a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdabcbc618b2f105aa24fb5facb7b234aca">WAIT_N</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdabcbc618b2f105aa24fb5facb7b234aca">WAIT_N</a>:</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = (<span class="keywordtype">byte</span> == <span class="charliteral">&#39;N&#39;</span>) ? <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdadfb0c03992c00049134a0e492695f10b">WAIT_E</a> : <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdadfb0c03992c00049134a0e492695f10b">WAIT_E</a>:</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = (<span class="keywordtype">byte</span> == <span class="charliteral">&#39;E&#39;</span>) ? <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda1249902edbef031a021780a7efb0262c">WAIT_R</a> : <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a>;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda1249902edbef031a021780a7efb0262c">WAIT_R</a>:</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = (<span class="keywordtype">byte</span> == <span class="charliteral">&#39;R&#39;</span>) ? <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdaa453f0b92d2ac7edfd764eccacffcd58">WAIT_LEN</a> : <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdaa453f0b92d2ac7edfd764eccacffcd58">WAIT_LEN</a>:</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <a class="code hl_variable" href="class_serial_manager.html#a60b5cd79127e03e3ec0bd4243add3dff">fsmLen</a> = byte;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <a class="code hl_variable" href="class_serial_manager.html#af2a7254d28d8529044f5737569e9aadd">fsmCks</a> = <span class="charliteral">&#39;U&#39;</span> ^ <span class="charliteral">&#39;N&#39;</span> ^ <span class="charliteral">&#39;E&#39;</span> ^ <span class="charliteral">&#39;R&#39;</span> ^ <span class="keywordtype">byte</span> ^ <span class="charliteral">&#39;:&#39;</span>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <a class="code hl_variable" href="class_serial_manager.html#ae923f1a1233c97976a829fa4682a5993">fsmPayload</a>.clear();</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda8a99881ec9f35037bf7fd89f65e131c1">WAIT_COLON</a>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda8a99881ec9f35037bf7fd89f65e131c1">WAIT_COLON</a>:</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = (<span class="keywordtype">byte</span> == <span class="charliteral">&#39;:&#39;</span>) ? <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2063d705393f509760143bf9bcfb253f">RECV_PAYLOAD</a> : <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2063d705393f509760143bf9bcfb253f">RECV_PAYLOAD</a>:</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_serial_manager.html#a60b5cd79127e03e3ec0bd4243add3dff">fsmLen</a> &gt; 1) {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            <a class="code hl_variable" href="class_serial_manager.html#ae923f1a1233c97976a829fa4682a5993">fsmPayload</a>.append(<span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(<span class="keywordtype">byte</span>));</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            <a class="code hl_variable" href="class_serial_manager.html#af2a7254d28d8529044f5737569e9aadd">fsmCks</a> ^= byte;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            <a class="code hl_variable" href="class_serial_manager.html#a60b5cd79127e03e3ec0bd4243add3dff">fsmLen</a>--;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            <span class="comment">/* Byte de checksum: validar e invocar senal */</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_serial_manager.html#af2a7254d28d8529044f5737569e9aadd">fsmCks</a> == <span class="keywordtype">byte</span> &amp;&amp; <a class="code hl_variable" href="class_serial_manager.html#ae923f1a1233c97976a829fa4682a5993">fsmPayload</a>.size() &gt;= 1) {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                uint8_t cmdId = <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_serial_manager.html#ae923f1a1233c97976a829fa4682a5993">fsmPayload</a>.at(0));</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                QByteArray data = <a class="code hl_variable" href="class_serial_manager.html#ae923f1a1233c97976a829fa4682a5993">fsmPayload</a>.mid(1);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                emit <a class="code hl_function" href="class_serial_manager.html#a76f16d83950cba09e6b5a495fbaacc83">frameReceived</a>(cmdId, data);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            <a class="code hl_variable" href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">fsmState</a> = <a class="code hl_enumvalue" href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">WAIT_U</a>;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>}</div>
+</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">/* =========================================================================</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment"> * Heartbeat</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment"> * ====================================================================== */</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment"></span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"> * @brief Envia un comando CMD_ALIVE al MCU como heartbeat periodico.</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment"> * @details Se ejecuta cada 500 ms mediante el QTimer aliveTimer.</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment"> *          El MCU responde con EVT_ALIVE para confirmar que esta operativo.</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00225" data-start="{" data-end="}">
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="class_serial_manager.html#a978739631dbc4875c5151668e1452778">  225</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_manager.html#a978739631dbc4875c5151668e1452778">SerialManager::onAliveTimer</a>() {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <a class="code hl_function" href="class_serial_manager.html#ab9fb00276941e33fe0c7be0f42e0246e">sendCommand</a>(<a class="code hl_variable" href="protocol_8h.html#a0e0ef209ad00cab4f107b6b891b87d3b">CMD_ALIVE</a>);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>}</div>
+</div>
+<div class="ttc" id="aclass_serial_manager_html_a0a9b4036f9b600ba62ee50e43320deff"><div class="ttname"><a href="class_serial_manager.html#a0a9b4036f9b600ba62ee50e43320deff">SerialManager::connectPort</a></div><div class="ttdeci">bool connectPort(const QString &amp;portName)</div><div class="ttdoc">Abre el puerto serie especificado a 115200 baud, 8N1.</div><div class="ttdef"><b>Definition</b> <a href="#l00067">serialmanager.cpp:67</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a0f94a12c023b54a672e0e99442e5f89c"><div class="ttname"><a href="class_serial_manager.html#a0f94a12c023b54a672e0e99442e5f89c">SerialManager::disconnectPort</a></div><div class="ttdeci">void disconnectPort()</div><div class="ttdoc">Cierra el puerto serie y detiene el heartbeat.</div><div class="ttdef"><b>Definition</b> <a href="#l00092">serialmanager.cpp:92</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a16fd39bf0f6f355cfdf4cf6613af55fc"><div class="ttname"><a href="class_serial_manager.html#a16fd39bf0f6f355cfdf4cf6613af55fc">SerialManager::processRxByte</a></div><div class="ttdeci">void processRxByte(uint8_t byte)</div><div class="ttdoc">Procesa un byte recibido a traves de la FSM de decodificacion UNER.</div><div class="ttdef"><b>Definition</b> <a href="#l00174">serialmanager.cpp:174</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a1bcbfd31f1ec96a14b57ff9ee143585b"><div class="ttname"><a href="class_serial_manager.html#a1bcbfd31f1ec96a14b57ff9ee143585b">SerialManager::aliveTimer</a></div><div class="ttdeci">QTimer * aliveTimer</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00117">serialmanager.h:117</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a35c3260cdd251e6628824ff41fb1deee"><div class="ttname"><a href="class_serial_manager.html#a35c3260cdd251e6628824ff41fb1deee">SerialManager::disconnected</a></div><div class="ttdeci">void disconnected()</div><div class="ttdoc">Emitida al desconectar del puerto serie.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a3799ff52382c56504c1b1a79194b66c6"><div class="ttname"><a href="class_serial_manager.html#a3799ff52382c56504c1b1a79194b66c6">SerialManager::isConnected</a></div><div class="ttdeci">bool isConnected() const</div><div class="ttdoc">Consulta si el puerto serie esta abierto.</div><div class="ttdef"><b>Definition</b> <a href="#l00104">serialmanager.cpp:104</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a3a0b8870786c2fab63a0f6127f39141e"><div class="ttname"><a href="class_serial_manager.html#a3a0b8870786c2fab63a0f6127f39141e">SerialManager::fsmState</a></div><div class="ttdeci">FsmState fsmState</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00130">serialmanager.h:130</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a3d7ab73e92bc56d6ba3c1c600367f4b3"><div class="ttname"><a href="class_serial_manager.html#a3d7ab73e92bc56d6ba3c1c600367f4b3">SerialManager::availablePorts</a></div><div class="ttdeci">QStringList availablePorts() const</div><div class="ttdoc">Retorna la lista de puertos serie disponibles en el sistema.</div><div class="ttdef"><b>Definition</b> <a href="#l00050">serialmanager.cpp:50</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a60b5cd79127e03e3ec0bd4243add3dff"><div class="ttname"><a href="class_serial_manager.html#a60b5cd79127e03e3ec0bd4243add3dff">SerialManager::fsmLen</a></div><div class="ttdeci">uint8_t fsmLen</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00131">serialmanager.h:131</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a6800394366d8b7b2b3daeda81caaf1b7"><div class="ttname"><a href="class_serial_manager.html#a6800394366d8b7b2b3daeda81caaf1b7">SerialManager::connected</a></div><div class="ttdeci">void connected()</div><div class="ttdoc">Emitida al conectar exitosamente al puerto serie.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a68e39f893f4a1b9c361ad12cb70a65cda1249902edbef031a021780a7efb0262c"><div class="ttname"><a href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda1249902edbef031a021780a7efb0262c">SerialManager::WAIT_R</a></div><div class="ttdeci">@ WAIT_R</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00124">serialmanager.h:124</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a68e39f893f4a1b9c361ad12cb70a65cda2063d705393f509760143bf9bcfb253f"><div class="ttname"><a href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2063d705393f509760143bf9bcfb253f">SerialManager::RECV_PAYLOAD</a></div><div class="ttdeci">@ RECV_PAYLOAD</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00127">serialmanager.h:127</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb"><div class="ttname"><a href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda2c2db121cf72408499197330e9de9bfb">SerialManager::WAIT_U</a></div><div class="ttdeci">@ WAIT_U</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00121">serialmanager.h:121</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a68e39f893f4a1b9c361ad12cb70a65cda8a99881ec9f35037bf7fd89f65e131c1"><div class="ttname"><a href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cda8a99881ec9f35037bf7fd89f65e131c1">SerialManager::WAIT_COLON</a></div><div class="ttdeci">@ WAIT_COLON</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00126">serialmanager.h:126</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a68e39f893f4a1b9c361ad12cb70a65cdaa453f0b92d2ac7edfd764eccacffcd58"><div class="ttname"><a href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdaa453f0b92d2ac7edfd764eccacffcd58">SerialManager::WAIT_LEN</a></div><div class="ttdeci">@ WAIT_LEN</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00125">serialmanager.h:125</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a68e39f893f4a1b9c361ad12cb70a65cdabcbc618b2f105aa24fb5facb7b234aca"><div class="ttname"><a href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdabcbc618b2f105aa24fb5facb7b234aca">SerialManager::WAIT_N</a></div><div class="ttdeci">@ WAIT_N</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00122">serialmanager.h:122</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a68e39f893f4a1b9c361ad12cb70a65cdadfb0c03992c00049134a0e492695f10b"><div class="ttname"><a href="class_serial_manager.html#a68e39f893f4a1b9c361ad12cb70a65cdadfb0c03992c00049134a0e492695f10b">SerialManager::WAIT_E</a></div><div class="ttdeci">@ WAIT_E</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00123">serialmanager.h:123</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a76f16d83950cba09e6b5a495fbaacc83"><div class="ttname"><a href="class_serial_manager.html#a76f16d83950cba09e6b5a495fbaacc83">SerialManager::frameReceived</a></div><div class="ttdeci">void frameReceived(uint8_t cmdId, QByteArray payload)</div><div class="ttdoc">Emitida al recibir una trama UNER valida con checksum correcto.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_a8d8fdd485791ee860709268140ea56c1"><div class="ttname"><a href="class_serial_manager.html#a8d8fdd485791ee860709268140ea56c1">SerialManager::~SerialManager</a></div><div class="ttdeci">~SerialManager()</div><div class="ttdoc">Destructor. Cierra el puerto si esta abierto.</div><div class="ttdef"><b>Definition</b> <a href="#l00038">serialmanager.cpp:38</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_a978739631dbc4875c5151668e1452778"><div class="ttname"><a href="class_serial_manager.html#a978739631dbc4875c5151668e1452778">SerialManager::onAliveTimer</a></div><div class="ttdeci">void onAliveTimer()</div><div class="ttdoc">Slot del timer de heartbeat: envia CMD_ALIVE cada 500 ms.</div><div class="ttdef"><b>Definition</b> <a href="#l00225">serialmanager.cpp:225</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_aa2d090c2f7dc822a3fb1f3ac432abd0d"><div class="ttname"><a href="class_serial_manager.html#aa2d090c2f7dc822a3fb1f3ac432abd0d">SerialManager::SerialManager</a></div><div class="ttdeci">SerialManager(QObject *parent=nullptr)</div><div class="ttdoc">Constructor. Crea el QSerialPort y el timer de heartbeat.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">serialmanager.cpp:26</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_aaf00eb896d0a23be6a9a347b28f158da"><div class="ttname"><a href="class_serial_manager.html#aaf00eb896d0a23be6a9a347b28f158da">SerialManager::port</a></div><div class="ttdeci">QSerialPort * port</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00116">serialmanager.h:116</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_ab9fb00276941e33fe0c7be0f42e0246e"><div class="ttname"><a href="class_serial_manager.html#ab9fb00276941e33fe0c7be0f42e0246e">SerialManager::sendCommand</a></div><div class="ttdeci">void sendCommand(uint8_t cmdId, const QByteArray &amp;data={})</div><div class="ttdoc">Envia un comando al MCU encapsulado en una trama UNER.</div><div class="ttdef"><b>Definition</b> <a href="#l00125">serialmanager.cpp:125</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_aba3a12f136892744725b45a0f2d33f96"><div class="ttname"><a href="class_serial_manager.html#aba3a12f136892744725b45a0f2d33f96">SerialManager::connectionError</a></div><div class="ttdeci">void connectionError(const QString &amp;msg)</div><div class="ttdoc">Emitida cuando ocurre un error al abrir el puerto.</div></div>
+<div class="ttc" id="aclass_serial_manager_html_ae923f1a1233c97976a829fa4682a5993"><div class="ttname"><a href="class_serial_manager.html#ae923f1a1233c97976a829fa4682a5993">SerialManager::fsmPayload</a></div><div class="ttdeci">QByteArray fsmPayload</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00133">serialmanager.h:133</a></div></div>
+<div class="ttc" id="aclass_serial_manager_html_af2a7254d28d8529044f5737569e9aadd"><div class="ttname"><a href="class_serial_manager.html#af2a7254d28d8529044f5737569e9aadd">SerialManager::fsmCks</a></div><div class="ttdeci">uint8_t fsmCks</div><div class="ttdef"><b>Definition</b> <a href="serialmanager_8h_source.html#l00132">serialmanager.h:132</a></div></div>
+<div class="ttc" id="aprotocol_8h_html_a0e0ef209ad00cab4f107b6b891b87d3b"><div class="ttname"><a href="protocol_8h.html#a0e0ef209ad00cab4f107b6b891b87d3b">CMD_ALIVE</a></div><div class="ttdeci">constexpr uint8_t CMD_ALIVE</div><div class="ttdoc">Heartbeat bidireccional: Qt envia, MCU responde con EVT_ALIVE.</div><div class="ttdef"><b>Definition</b> <a href="protocol_8h_source.html#l00043">protocol.h:43</a></div></div>
+<div class="ttc" id="aserialmanager_8h_html"><div class="ttname"><a href="serialmanager_8h.html">serialmanager.h</a></div><div class="ttdoc">Modulo de comunicacion serie con protocolo UNER para el HMI Qt.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="serialmanager_8cpp.html">serialmanager.cpp</a></li>
+    <li class="footer">Generado el <span class="timestamp"></span> para Clasificador de Cajas - HMI Qt por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

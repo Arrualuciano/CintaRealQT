@@ -1,0 +1,7 @@
+<map id="SerialManager::connectPort" name="SerialManager::connectPort">
+<area shape="rect" id="Node000001" title="Abre el puerto serie especificado a 115200 baud, 8N1." alt="" coords="5,35,188,61"/>
+<area shape="rect" id="Node000002" href="$class_serial_manager.html#a6800394366d8b7b2b3daeda81caaf1b7" title="Emitida al conectar exitosamente al puerto serie." alt="" coords="237,5,410,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,34,225,31,219,32,188,39"/>
+<area shape="rect" id="Node000003" href="$class_serial_manager.html#aba3a12f136892744725b45a0f2d33f96" title="Emitida cuando ocurre un error al abrir el puerto." alt="" coords="236,56,411,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,57,223,64,217,64,188,62"/>
+</map>
